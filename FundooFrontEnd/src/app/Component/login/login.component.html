@@ -35,15 +35,16 @@
                 <mat-error *ngIf="password.hasError('minlength')">Use 8 or More Characters with a mix of letters,numbers & symbols</mat-error>
         </mat-form-field>
         <div class="button">
-            <button mat-raised-button class="loginbutton" type="button" color="primary" (click)="loginform()"
+            <button mat-raised-button class="loginbutton" type="button" color="primary" (click)="loginForm()"
                 class="login_btn">Sign in</button>
         </div> <br>
         <div class="link">
-            <span class="reg"><a routerLink="/register">Don't Have Account? </a><a href="register">Register</a></span>
+            <span class="forgot" routerLink="/forgot">ForgetPassword?<a href="forgotpassword">forgotPassword</a></span>
         </div>
         <div class="link">
-            <span class="reg"><a routerLink="/forgot">Forgotpassword? </a><a href="forgotpassword">ForgetPassword</a></span>
+            <span class="registernewaccount" routerLink="/register">Don't Have Account? <a href="register">Register</a></span>
         </div>
+      
         <br>
     </form>
 </mat-card>
