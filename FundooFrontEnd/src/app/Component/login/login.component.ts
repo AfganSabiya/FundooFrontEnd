@@ -20,9 +20,12 @@ export class LoginComponent implements OnInit {
     private route: Router, 
     private snackbar: MatSnackBar) 
     { }
-
-
   ngOnInit() {
+  }
+  loginform(){
+    if (this.email.value != null && this.password.value >= 8) {
+      
+    }
   }
 
 }
