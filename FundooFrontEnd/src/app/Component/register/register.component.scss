@@ -53,23 +53,31 @@ h3{
     background-color: whitesmoke;
     margin-top: auto;
     height: 80%;
-    width: 75%;
+    width: 50%;
     visibility: visible;
     margin:auto;
+}
+.div{
+    align-content: center;
 }
 .darkred{
     color:red;
 }
 .smallname {
-    width: 45%;
+    width: 46%;
     margin: 0 10px;
 }
 .register_btn{
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+}
+.line{
+    width:97%;
+    margin: 0 10px;
 }
 .linewidth
 {
-    width: 95%;
+    width: 46%;
+    margin: 0 10px;
 }
 .register{
     font-weight: 500;
@@ -93,7 +101,7 @@ font-size: 20px;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .facebook {
-     background-color: darkblue;
+    background-color: darkblue;
     color: white;
     align-items: center;
     padding: 1%;
