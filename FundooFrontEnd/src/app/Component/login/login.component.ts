@@ -23,12 +23,17 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   loginform(){
-    if (this.email.value != null && this.password.value >= 8) {
+    if (this.email.value != null && this.password.value >= 8) 
+    {
       const form ={
         email: this.email.value,
         password: this.password.value
        };
+       this.service.registrationform(form).subscribe((result) =>{
+        this.snackbar.open('Login Sucessfully', 'Dismiss', { duration: 3000 });
+        console.log('result :', result);
+        this.route.navigate(['/forgotpassword']);
+      },
     }
   }
-
 }
