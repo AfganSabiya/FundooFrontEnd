@@ -1,5 +1,5 @@
 <mat-card class="card">
-    div class="div">
+   <div class="div">
         <mat-card-header>
             <mat-card-title class="subtitle">
                 <mat-label class="fundoo">
@@ -16,10 +16,34 @@
         </mat-card-header>
         <mat-card-header>
             <mat-card-title>
-                <h2>Sign in</h2>
+                <h2>Sign in</h2><br><br>
             </mat-card-title>
         </mat-card-header>
     </div>
     <form class="Input-form-container">
+        <mat-form-field class="registration" appearance="outline" class="linewidth">
+            <mat-label class="labelColor">Email</mat-label>
+                <input matInput [formControl]="email" placeholder="Email-Id" required>
+                <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">Sorry,Invalid email
+                </mat-error>
+                <mat-error *ngIf="email.hasError('required')">Email is Required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="registration" appearance="outline" class="linewidth">
+            <mat-label class="labelColor">Password</mat-label>
+                <input matInput [formControl]="password" placeholder="password" type="password" required >
+                <mat-error *ngIf="password.hasError('required')">Password is Required</mat-error>
+                <mat-error *ngIf="password.hasError('minlength')">Use 8 or More Characters with a mix of letters,numbers & symbols</mat-error>
+        </mat-form-field>
+        <div class="button">
+            <button mat-raised-button class="loginbutton" type="button" color="primary" (click)="loginform()"
+                class="login_btn">Sign in</button>
+        </div> <br>
+        <div class="link">
+            <span class="reg"><a routerLink="/register">Don't Have Account? </a><a href="register">Register</a></span>
+        </div>
+        <div class="link">
+            <span class="reg"><a routerLink="/forgot">Forgotpassword? </a><a href="forgotpassword">ForgetPassword</a></span>
+        </div>
+        <br>
     </form>
 </mat-card>
