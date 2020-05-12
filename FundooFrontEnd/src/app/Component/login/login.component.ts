@@ -34,6 +34,9 @@ export class LoginComponent implements OnInit {
         console.log('result :', result);
         this.route.navigate(['/forgotpassword']);
       },
+      (error) =>{
+        this.snackbar.open('Login Failed.Check Your Credentails', '', { duration: 4000 });
+     });
     }
   }
 }
