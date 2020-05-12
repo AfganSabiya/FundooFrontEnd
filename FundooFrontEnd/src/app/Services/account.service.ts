@@ -7,8 +7,11 @@ import { environment } from 'src/environments/environment';
 export class AccountService {
   constructor(private http: HttpClient) { }
 
-  registrationform(values){
-    debugger;
+  registrationForm(values){
     return this.http.post(environment.Url+'api/Register',values);
   }
+  loginForm(data){
+    return this.http.post(environment.Url+'api/AdminLogin',data);
+  }
+  
 }
