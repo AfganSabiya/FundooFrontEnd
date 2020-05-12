@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpassword.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    CardComponent
+    CardComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     FormsModule,
