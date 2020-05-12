@@ -24,7 +24,10 @@ export class LoginComponent implements OnInit {
   }
   loginform(){
     if (this.email.value != null && this.password.value >= 8) {
-      
+      const form ={
+        email: this.email.value,
+        password: this.password.value
+       };
     }
   }
 
