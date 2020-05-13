@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AccountService } from 'src/app/Services/account.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormControl, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-resetpassword',
   templateUrl: './resetpassword.component.html',
@@ -11,14 +16,29 @@ export class ResetpasswordComponent implements OnInit {
     private route: Router, 
     private snackBar: MatSnackBar
   ) { }
-  email = new FormControl('', [
-    Validators.required, Validators.email,]);
-   
+      password = new FormControl('', [
+      Validators.required, Validators.minLength(8),]);
+      confirmpassword = new FormControl('', [
+      Validators.required, Validators.minLength(8),]);
   ngOnInit() {
   }
-  const form = {
-    newPassword :this.password.value,
-    userEmail: this.email.value,
-    confirmPassword: this.password.value
-  };
+  resetForm(){
+    let newPassword= new String(this.password.value)
+    if(this.confirmpassword.value!='' && this.password.value!='' && this.confirmpassword.value===this.password.value){
+      const data = {
+        newPassword: this.password.value,
+        confirmPassword:this.confirmpassword.value,
+      };
+      console.log("PASSWORD CHANGED SUCCESSFULLY");
+      this.service.resetForm(data).subscribe(
+        (response) => 
+        {
+        this.snackBar.open('Reset password done sucessfully', 'Dismiss', { duration: 3000 });
+        },
+        (error) => {
+          this.snackBar.open('Resetpassword Failed.Check Your Credentails', '', { duration: 4000 });
+        });
+    }
+  }
+      
 }
