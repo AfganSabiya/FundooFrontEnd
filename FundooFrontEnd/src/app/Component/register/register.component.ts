@@ -29,10 +29,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  registrationForm() {
+  registrationForm() 
+  {
+    
     let firstName = new String(this.firstName.value);
     let lastName = new String(this.lastName.value);
     let userPassword = new String(this.password.value);
+    try{
     if (firstName.length >= 4 && lastName.length >= 4 && userPassword.length >= 8) 
     {
       const form = {
@@ -41,13 +44,17 @@ export class RegisterComponent implements OnInit {
         userEmail: this.email.value,
         userPassword: this.password.value
       };
-      this.service.registrationForm(form).subscribe(Response => {
+      this.service.registrationForm(form).subscribe(result => {
         this.snackbar.open('Registered Sucessfully', 'Dismiss', { duration: 3000 });
         this.route.navigate(['/login']);
       },
         (error) => {
+          console.log(error);
           this.snackbar.open('Registration Failed.Check Your Credentails', '', { duration: 4000 });
         });
       }
+    }catch(arr){
+      this.snackbar.open('arr','',{duration:2000});
+    }
   }
 }
