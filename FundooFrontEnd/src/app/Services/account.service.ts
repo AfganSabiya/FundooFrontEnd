@@ -13,5 +13,7 @@ export class AccountService {
   loginForm(data){
     return this.http.post(environment.Url+'api/AdminLogin',data);
   }
-  
+  forgotForm(result){
+    return this.http.post(environment.Url+'api/ForgotPassword',result);
+  }
 }
