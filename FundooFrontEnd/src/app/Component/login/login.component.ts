@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AccountService } from 'src/app/Services/account.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, Validators } from '@angular/forms';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -34,10 +35,10 @@ export class LoginComponent implements OnInit {
       };
       this.service.loginForm(credentials).subscribe((response) => 
       {
+        console.log(response);
+        localStorage.setItem('token',response['token']);
         this.snackBar.open('Login Successfully', 'Dismiss', { duration: 3000 });
-        console.log('result :', response );
-        this.route.navigate(['forgot/display']);
-      },      (error) => {
+      },(error) => {
         console.log('error :', error );
         this.snackBar.open('Login Failed. Check Your Credentials', '', { duration: 4000 });
       });
