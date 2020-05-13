@@ -8,12 +8,20 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   registrationForm(values){
+
+    console.log(values);
     return this.http.post(environment.Url+'api/Register',values);
   }
-  loginForm(data){
+  loginForm(data)
+  {
     return this.http.post(environment.Url+'api/AdminLogin',data);
   }
-  forgotForm(result){
-    return this.http.post(environment.Url+'api/ForgotPassword',result);
+  forgotForm(values)
+  {
+    return this.http.put(environment.Url+'api/ForgotPassword',values);
+  }
+  resetForm(values)
+  {
+    return this.http.put(environment.Url+'api/ResetPassword',values);
   }
 }
