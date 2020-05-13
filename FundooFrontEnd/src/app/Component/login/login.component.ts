@@ -37,9 +37,8 @@ export class LoginComponent implements OnInit {
       {
         this.snackBar.open('Login Successfully', 'Dismiss', { duration: 3000 });
         console.log('result :', response );
-        this.route.navigate(['forgot/display'], { queryParams: { page: 'notes' } });
-      },
-      (error) => {
+        this.route.navigate(['forgot/display']);
+      },      (error) => {
         console.log('error :', error );
         this.snackBar.open('Login Failed. Check Your Credentials', '', { duration: 4000 });
       });
