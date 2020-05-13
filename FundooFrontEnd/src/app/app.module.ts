@@ -15,7 +15,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpassword.component';
-
+import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpasswo
     RegisterComponent,
     LoginComponent,
     CardComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     FormsModule,
