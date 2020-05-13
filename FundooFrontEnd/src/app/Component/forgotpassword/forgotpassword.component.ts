@@ -9,7 +9,8 @@ import { FormControl, Validators } from '@angular/forms';
   templateUrl: './forgotpassword.component.html',
   styleUrls: ['./forgotpassword.component.scss']
 })
-export class ForgotpasswordComponent implements OnInit {
+export class ForgotpasswordComponent implements OnInit 
+{
   constructor(
     private service: AccountService, 
     private route: Router, 
@@ -20,5 +21,20 @@ export class ForgotpasswordComponent implements OnInit {
   ]);
   ngOnInit() {
   }
-
+  forgotForm()
+  {
+    const credentials= {
+      userEmail: this.email.value,
+    };
+    console.log(credentials);
+    this.service.forgotForm(credentials).subscribe((response) => 
+    {
+        this.snackBar.open('Forgot Successfully', 'Dismiss', { duration: 3000 });
+        console.log('result :', response );
+        this.route.navigate(['reset']);
+    },  (error) => {
+      console.log('error :', error );
+      this.snackBar.open('ForgotPassword Failed. Check Your Credentials', '', { duration: 4000 });
+    });
+  }
 }
