@@ -1,0 +1,19 @@
+<div class="total">
+    <mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="space-between center">
+        <button class="menubutton" mat-icon-button (click)="snav.toggle()">
+            <mat-icon matTooltip="Main Menu">menu</mat-icon>
+        </button>
+        
+        <h3>FundooNote</h3>
+        <div class="search">
+            <mat-card class="searchbar">
+                <button class="searchbutton" mat-icon-button>
+                    <mat-icon matSuffix>search</mat-icon>
+                </button>
+                <input class="searchinput" type="text" name="search" autocomplete="off" placeholder="Search ">
+                <button class="searchbutton" mat-icon-button>
+                </button>
+            </mat-card>
+        </div>
+    </mat-toolbar>
+</div>
