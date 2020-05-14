@@ -16,7 +16,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.component';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,14 +28,19 @@ import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.
     LoginComponent,
     CardComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    DashboardComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
     MatSnackBarModule, 
+    MatSidenavModule,
     MatInputModule,
     MatCardModule,
     ReactiveFormsModule,
