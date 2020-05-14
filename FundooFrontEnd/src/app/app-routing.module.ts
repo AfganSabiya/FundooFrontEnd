@@ -5,12 +5,17 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './Component/login/login.component';
 import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgotpassword',component: ForgotpasswordComponent },
-  { path: 'resetpassword',component: ResetpasswordComponent}
+  { path: 'resetpassword',component: ResetpasswordComponent},
+  { path: 'dashboard', component: DashboardComponent,
+  
+
+  }
 ];
 
 @NgModule({
