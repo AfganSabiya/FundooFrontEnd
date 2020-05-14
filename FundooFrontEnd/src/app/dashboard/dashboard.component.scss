@@ -1,0 +1,52 @@
+.toolbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+}
+.search{
+    padding-left: 25px;
+}
+.searchbar{
+    margin: auto;
+    padding-left: 30px;
+}
+.total{
+    display:flex;
+    height:15%;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.menubutton{
+    padding-left: 15px;
+}
+.searchbar{
+    width: 750px;
+    //max-width: 90%;
+    border-radius: 5px;
+    padding-left: 25px;
+    height: 40px;
+    padding: 0px;
+    display:flex;
+    border-inline-start-color: gainsboro;
+}
+.searchbutton{
+    background: transparent;
+    border:none;
+    outline:none;
+    margin-top: 3px;
+}
+.searchinput{
+    outline: none;
+    border: none;
+    width: 560px;
+    margin-left: 20px;
+}
+.menubutton{
+    padding-left: 15px;
+}
