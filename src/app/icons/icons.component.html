@@ -1,0 +1,25 @@
+<div>
+    <div style="padding-left: 15px;padding-top: 10px;" fxLayout="row">
+  <div class="colorlist">
+    <a>      
+        <button mat-icon-button  matTooltip="Remind Me" class="{{param}}">
+          <mat-icon    class="edit">add_alert</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="collaborator"  class="{{param}}">
+          <mat-icon>person-add</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="colorlist" class="{{param}}" matTooltip="Add Color">
+          <mat-icon>palette</mat-icon>
+      </button>
+        <button mat-icon-button class="button"  matTooltip="Add image">
+          <mat-icon class="icon">add_photo_alternate</mat-icon>
+        </button>
+        <button mat-icon-button  class="{{param}}" *ngIf="!data.archive"  matTooltip="Archive">
+          <mat-icon class="icon">archive</mat-icon>
+        </button>
+        <button mat-icon-button class="{{param}}" *ngIf="data.archive"  matTooltip="Unarchive">
+          <mat-icon class="icon" >unarchive</mat-icon>
+        </button>
+        <mat-icon [matMenuTriggerFor]="menus" class="{{param}}" matTooltip="more">more_vert</mat-icon>
+    </a>
+  </div>
