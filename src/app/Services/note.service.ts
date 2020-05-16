@@ -8,5 +8,7 @@ export class NoteService {
   constructor
   (
     private http: HttpClient){ }
-
+    addNote(values){
+      return this.http.post(environment.Url+'api/AddNotes',values);
+    }
 }
