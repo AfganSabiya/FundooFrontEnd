@@ -13,18 +13,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './Component/resetpassword/resetpassword.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
-import { IconsComponent } from './icons/icons.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -34,6 +34,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { AddNoteComponent } from './Component/add-note/add-note.component';
 import { TestComponent } from './Component/test/test.component';
+import { DisplayNoteComponent } from './Component/display-note/display-note.component';
+import { IconsComponent } from './Component/icons/icons.component';
+import { GetnoteComponent } from './Component/getnote/getnote.component';
+import { NoteComponent } from './Component/note/note.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +52,10 @@ import { TestComponent } from './Component/test/test.component';
     CreatenoteComponent,
     AddNoteComponent,
     TestComponent,
+    DisplayNoteComponent,
+    GetnoteComponent,
+    NoteComponent,
+    
   ],
   imports: [
     FormsModule,
@@ -54,10 +63,11 @@ import { TestComponent } from './Component/test/test.component';
     HttpClientModule,
     MatExpansionModule,
     MatSelectModule,
+    MatIconModule,
     AppRoutingModule,
+    MatGridListModule,
     MatToolbarModule,
     MatMenuModule,
-    MatIconModule,
     MatSnackBarModule, 
     RouterModule,
     MatSidenavModule,
