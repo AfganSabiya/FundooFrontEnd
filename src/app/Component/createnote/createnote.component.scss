@@ -1,0 +1,83 @@
+.openedmatcard{
+    // width: 36em;
+    // margin:100px;
+    // padding: 0px;
+    // cursor: text;
+    // align-content: center;
+    // left:30%;
+    width:42%;
+    height:auto;
+    left:25%;
+    margin: 110px;
+    background-color:white;
+    align-items: center;
+   // top:20px;
+    cursor: text;
+}
+.addmatcard{
+    margin-top: 110px;
+    width:42%;
+    height:5px;
+    position:absolute;
+    left:25%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index:1000;
+    top: 20px;
+}
+
+.takeNote{
+    // font-weight: 500;
+    // padding: 15px;
+    // opacity: 50%;
+    background-color: white;
+    margin: 0 0;
+    height: 25px;
+    width: 100%;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border:none;
+    outline: none;
+}
+.notetext{
+    font-weight: 500;
+    font-size: initial;
+    border: none;
+    background: transparent;
+    width: 20em;
+    outline: none;
+    height: 3em;
+    margin-left: 15px;
+}
+.closecls{
+    margin-top: 17px;
+    background-color:whitesmoke;
+    color: black;
+    font-weight: 500;
+    font-size: medium;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.box{
+display: flex;
+}
+.cancelclass{
+width:20%;
+Text-align:center;
+float: right;;
+}
+.bottomalign
+{
+    width: 75%;
+Text-align:left;
+float:left;
+}
+.noteicon{
+    left:45%;
+    background-color: white;
+}
