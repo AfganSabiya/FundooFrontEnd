@@ -12,8 +12,6 @@ export class CreatenoteComponent implements OnInit {
   Node: boolean = false;
   createNoteForm: FormGroup;
   notesmode: Note = new Note();
-  @Input() reminder: any;
-  @Output() output: EventEmitter<any> = new EventEmitter();
   title;
   description;
   color:string;
@@ -33,37 +31,32 @@ export class CreatenoteComponent implements OnInit {
       description:[''],
     })
   }
-  closenote(){
-    this.Node=true;
-    this.Node=false;
-  }
-  CreateNote(){
+  // closenote(){
+  //   this.Node=true;
+  //   this.Node=false;
+  // }
+  addNote(){
+    debugger;
     this.Node=false;
     if(this.createNoteForm.value.title !="" || this.createNoteForm.value.description !=""){
       this.notesmode.title = this.createNoteForm.value.title;
       this.notesmode.description =this.createNoteForm.value.description;
-      this.notesmode.changeColor=this.color;
+      this.notesmode.changeColor=null;
       this.notesmode.archive=this.isarchive;
-      this.notesmode.remainder=this.reminder;
+      this.notesmode.remainder=null;
       this.notesmode.pin=0;
-      this.notesmode.addImage=this.image;
-      this.noteService.addNote(this.notesmode).subscribe(
-        data=>{
-        console.log(data);
+      console.log(this.notesmode);
+      this.noteService.addNote(this.notesmode).subscribe(Response=>
+      {
+        console.log(Response);
         this.snackbar.open('Note Created Sucessfully','dismiss',{duration:3000});
-        this.submit();
-        this.output.emit("ok")
       },
       (error) => {
         this.snackbar.open('Error in creating', '', { duration: 2000 });
         console.log('error response', error);
       });
     }else{
-        this.submit();
+
     }
-  }
-  submit(){
-    this.createNoteForm.value.title="";
-    this.createNoteForm.value.description="";
   }
 }
