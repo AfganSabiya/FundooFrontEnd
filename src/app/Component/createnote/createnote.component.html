@@ -1,36 +1,33 @@
-<div>
-    <mat-card *ngIf="!Node" class="addmatcard" (click)="noteopen()">
-        <input matInput class="takeNote" placeholder="Take a note..........">
-        <button mat-icon-button class="checkboxicon" matTooltip="New list">
-            <mat-icon>check_box</mat-icon>
-        </button>
-        <button mat-icon-button class="brushicon" matTooltip="New note with drawing">
-            <mat-icon>brush</mat-icon>
-        </button>
-        <button mat-icon-button class="imageicon" matTooltip="New note with image">
-            <mat-icon>image</mat-icon>
-        </button>
-    </mat-card>
-    <mat-card *ngIf="Node" class="openedmatcard">
-        <form [formGroup]="createNoteForm">
-            <div style="display: flex;flex-direction: row;align-items: center;">
-                <input type="text" class="notetext" placeholder="Title" formControlName="title"
-                    [ngStyle]="{'background-color':noteColor}">
-            </div>
-            <div>
-                <input class="notetext" type="text" placeholder="description"formControlName="description"
-                    [ngStyle]="{'background-color':noteColor}">
-            </div>
+<mat-card *ngIf="!Node" class="addmatcard" (click)="noteopen()">
+    <input matInput class="takeNote" placeholder="Take a note..........">
+    <button mat-icon-button class="checkboxicon" matTooltip="New list">
+        <mat-icon>check_box</mat-icon>
+    </button>
+    <button mat-icon-button class="brushicon" matTooltip="New note with drawing">
+        <mat-icon>brush</mat-icon>
+    </button>
+    <button mat-icon-button class="imageicon" matTooltip="New note with image">
+        <mat-icon>image</mat-icon>
+    </button>
+</mat-card>
+<mat-card *ngIf="Node" class="openedmatcard">
+    <form [formGroup]="createNoteForm">
+        <div style="display: flex;flex-direction: row;align-items: center;">
+            <input type="text" class="notetext" placeholder="Title" formControlName="title"
+                [ngStyle]="{'background-color':noteColor}">
+        </div>
+        <div>
+            <input class="notetext" type="text" placeholder="description" formControlName="description"
+                [ngStyle]="{'background-color':noteColor}">
+        </div>
 
-            <div class="box">
-                <div class="bottomalign">
-                    <app-icons></app-icons>
-                </div>
-                <div class=" cancelclass">
-                    <button mat-button class="closecls" (click)="createNote()">Close</button>
-                 </div>
-            </div> 
-        </form>
-    </mat-card>
-</div>
-   
+        <div class="box">
+            <div class="bottomalign">
+                <app-icons></app-icons>
+            </div>
+            <div class=" cancelclass">
+                <button mat-button class="closecls" (click)="addNote()">Close</button>
+            </div>
+        </div>
+    </form>
+</mat-card>
