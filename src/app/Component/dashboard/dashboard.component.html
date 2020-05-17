@@ -12,7 +12,7 @@
                     (keyup.enter)="findData(val.value)" #val>
                 </div>
             </div>
-        </div>
+        </div> 
         
         <div class="appBarLastIcon">
             <div class="refresh">
@@ -64,6 +64,9 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <p *ngFor="let content of fillerContent">{{content}}</p>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
