@@ -1,0 +1,15 @@
+<div>
+    <br>
+    <app-createnote></app-createnote>
+    <br>  
+</div>
+<div style="padding-left: 255px;">
+    <h5>PINNED</h5>
+</div>
+<div *ngIf="col" class="row" style="margin-left: 10%;">
+    <div *ngFor="let notes of allNotes">
+        <div *ngIf="!notes.archive && !notes.trash && notes.pin==1" class="column">
+            <app-editcard [notes]="note"></app-editcard>
+        </div>
+    </div>
+</div>
