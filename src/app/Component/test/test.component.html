@@ -1,1 +1,13 @@
-<p>test works!</p>
+<mat-card *ngIf="!popup" class="card" (click)="noteopen()">
+    <div class="takeNote">Take a note...
+    <button mat-icon-button class="noteicon" matTooltip="New list">
+        <mat-icon>check_box</mat-icon>
+      </button>
+      <button mat-icon-button class="noteicon" matTooltip="New note with drawing">
+        <mat-icon>brush</mat-icon>
+      </button>
+      <button mat-icon-button class="noteicon" matTooltip="New note with image">
+        <mat-icon>image</mat-icon>
+      </button>
+    </div>
+  </mat-card>

@@ -1,4 +1,5 @@
-export class Note {
+export class Note 
+{
     title: String;
     description: String;
     changeColor: String;

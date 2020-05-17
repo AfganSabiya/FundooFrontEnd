@@ -1,5 +1,5 @@
 <div>
-    <mat-card  class="addmatcard">
+  <mat-card class="addmatcard" (click)="clicknote" *ngIf="!popup">
         <input matInput class="searchbar" placeholder="Take a note...">
         <button mat-icon-button class="closedmaticons" matTooltip="New list">
           <mat-icon>check_box</mat-icon>
@@ -10,5 +10,5 @@
         <button mat-icon-button class="closedmaticons" matTooltip="New note with image">
           <mat-icon>image</mat-icon>
         </button>
-      </mat-card>
+  </mat-card>
 </div>

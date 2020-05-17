@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         console.log(response);
         localStorage.setItem('token',response['token']);
         this.snackBar.open('Login Successfully', 'Dismiss', { duration: 3000 });
+        this.route.navigate['dashboard/display'];
       },(error) => {
         console.log('error :', error );
         this.snackBar.open('Login Failed. Check Your Credentials', '', { duration: 4000 });
