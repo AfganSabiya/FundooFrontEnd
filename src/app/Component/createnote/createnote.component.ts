@@ -12,8 +12,6 @@ export class CreatenoteComponent implements OnInit {
   Node: boolean = false;
   createNoteForm: FormGroup;
   notesmode: Note = new Note();
-  title;
-  description;
   color:string;
   isarchive=0;
   image:string;
@@ -31,28 +29,28 @@ export class CreatenoteComponent implements OnInit {
       description:[''],
     })
   }
-  addNote(){
+  addNote(title,description){
     debugger;
     this.Node=false;
-    if(this.createNoteForm.value.title !="" || this.createNoteForm.value.description !=""){
-      this.notesmode.title = this.createNoteForm.value.title;
-      this.notesmode.description =this.createNoteForm.value.description;
-      this.notesmode.changeColor=null;
-      this.notesmode.archive=this.isarchive;
-      this.notesmode.remainder=null;
-      this.notesmode.pin=0;
-      console.log(this.notesmode);
-      this.noteService.addNote(this.notesmode).subscribe(Response=>
+    if(title.value !="" || description.value !=""){
+      // this.notesmode.changeColor=null;
+      // this.notesmode.archive=this.isarchive;
+      // this.notesmode.remainder=null;
+      // this.notesmode.pin=0;
+      const form={
+        title,
+        description
+      }
+      console.log(title, description);
+      this.noteService.addNote(form).subscribe(Response=>
       {
         console.log(Response);
         this.snackbar.open('Note Created Sucessfully','dismiss',{duration:3000});
       },
       (error) => {
-        this.snackbar.open('Error in creating', '', { duration: 2000 });
+        this.snackbar.open('Error in creating note', '', { duration: 2000 });
         console.log('error response', error);
       });
-    }else{
-
     }
   }
 }
