@@ -9,8 +9,8 @@ import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { AddNoteComponent } from './Component/add-note/add-note.component';
 import { TestComponent } from './Component/test/test.component';
 import { CreatenoteComponent } from './Component/createnote/createnote.component';
-import { GetnoteComponent } from './Component/getnote/getnote.component';
 import { NoteComponent } from './Component/note/note.component';
+import { DisplayNoteComponent } from './Component/display-note/display-note.component';
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
@@ -18,11 +18,16 @@ const routes: Routes = [
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'test',component:TestComponent},
   { path: 'addnote',component:AddNoteComponent},
-  { path: 'dashboard', component: DashboardComponent},
+  { path: 'dashboard', component: DashboardComponent,
+  children:[
+    {path:'display',component:DisplayNoteComponent},
+  ]
+},
   { path: 'createnote',component:CreatenoteComponent},
-  { path: 'getnote',component:GetnoteComponent},
-  { path: 'note',component:NoteComponent}
+  { path: 'note',component:NoteComponent},
+   {path:'displaynote',component:DisplayNoteComponent}
 ];
+
 
 @NgModule({
   imports: [
