@@ -31,10 +31,6 @@ export class CreatenoteComponent implements OnInit {
       description:[''],
     })
   }
-  // closenote(){
-  //   this.Node=true;
-  //   this.Node=false;
-  // }
   addNote(){
     debugger;
     this.Node=false;
