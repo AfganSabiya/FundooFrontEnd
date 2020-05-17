@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,6 +14,7 @@ export class DashboardComponent implements OnInit {
       ``);
   private _mobileQueryListener: () => void;
   constructor(
+    private route: Router,
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -23,5 +26,8 @@ export class DashboardComponent implements OnInit {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+  displaynote(){
+   this.route.navigateByUrl('/displaynote');
+  }
 }
 
