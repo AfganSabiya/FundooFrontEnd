@@ -36,7 +36,6 @@ import { AddNoteComponent } from './Component/add-note/add-note.component';
 import { TestComponent } from './Component/test/test.component';
 import { DisplayNoteComponent } from './Component/display-note/display-note.component';
 import { IconsComponent } from './Component/icons/icons.component';
-import { GetnoteComponent } from './Component/getnote/getnote.component';
 import { NoteComponent } from './Component/note/note.component';
 
 @NgModule({
@@ -53,9 +52,7 @@ import { NoteComponent } from './Component/note/note.component';
     AddNoteComponent,
     TestComponent,
     DisplayNoteComponent,
-    GetnoteComponent,
     NoteComponent,
-    
   ],
   imports: [
     FormsModule,
