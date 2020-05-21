@@ -1,8 +1,7 @@
-<mat-card class="card">
-    <div  fxLayout="row" class="space" >
-        <div style="padding: 0px;" id="title">{{note.title}}</div>
-    </div>
-    <div class="displaynote">
-        <div id="description">{{note.description}}</div>
-    </div>
-</mat-card>
+<div>
+   <app-createnote (outputnote)="getAllNotes($event)"></app-createnote>
+   <!-- <app-createnote></app-createnote> -->
+    <div class="row">
+      <app-display-note class="col"  [inputdata]="displayAllNotes" > </app-display-note>
+   </div>
+</div> 
