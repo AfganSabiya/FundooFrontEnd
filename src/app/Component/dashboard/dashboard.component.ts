@@ -18,15 +18,17 @@ export class DashboardComponent implements OnInit {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-    
+
   }
   ngOnInit(){}
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
-  displaynote(){
-   this.route.navigateByUrl('/displaynote');
-  }
+  note(){
+    debugger;
+  this.route.navigate(['/note']);
+  //  this.route.navigateByUrl("/note")
+   }
 }
 
