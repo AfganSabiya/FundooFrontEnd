@@ -1,12 +1,13 @@
 .icon {
-    border-bottom-color: rgb(17, 2, 2);
-    margin: 0 7px;
+    font-size: 20px;
 }
-.row{
-    border-bottom-color: rgb(14, 12, 12);
-    margin: 0 3px;
+.icons{
+   justify-content: space-around;
+   opacity: 0.9;
 }
-.column{
-    border-bottom-color: rgb(12, 1, 1);
-    margin: 0 4px;
+.button{
+    background: transparent;
+    border: none;
+    outline: none;
+    margin:1px;
 }
