@@ -1,12 +1,13 @@
- <div class="displayalign">
-    <div class="createAddnote">
-        <app-createnote></app-createnote>
-    </div>
+<div class="cardiv">
+    <mat-card class="cardalign" *ngFor="let data of inputdata" >
+            <div class="aligntitle">
+                {{data.title}}
+            </div>
+            <div class="aligndescrip">
+                {{data.description}}
+            </div>
+            <div  class="icons">
+                <app-icons [note]="data"></app-icons>
+            </div>
+    </mat-card>
 </div>
-<div class="row" style="margin-left: 10%;"><br>
-    <div *ngFor="let notes of allNotes">
-        <div class="column">
-           <app-note [note]="notes"></app-note>
-        </div><br>
-    </div>
-</div>  
