@@ -2,24 +2,17 @@
     width: 36em;
     // margin:100px;
      padding: 0px;
-     cursor: text;
-    align-content: center;
+     align-content: center;
      left:30%;
      width:42%;
-//     height:auto;
-//     left:25%;
-//     //margin: 110px;
-//     background-color:white;
-//    // align-items: center;
-    top:20px;
-   
-    cursor: text;
+     top:20px;
+     cursor: text;
 }
 .addmatcard{
     //margin-top: 110px;
-    width:42%;
+    width: 36em;
     height:5px;
-    position:absolute;
+    position:sticky;
     left:25%;
     background-color: white;
     display: flex;
@@ -54,7 +47,7 @@
     height: 3em;
     margin-left: 15px;
 }
-.closecls{
+.closeclass{
     margin-top: 17px;
     background-color:whitesmoke;
     color: black;
@@ -74,7 +67,7 @@ float: right;;
 }
 .bottomalign
 {
-    width: 75%;
+width: 75%;
 Text-align:left;
 float:left;
 }

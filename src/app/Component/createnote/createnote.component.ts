@@ -9,12 +9,12 @@ import { Note } from 'src/app/model/notesmode.model';
   styleUrls: ['./createnote.component.scss']
 })
 export class CreatenoteComponent implements OnInit {
+  @Output() outputnote:EventEmitter<any> = new EventEmitter();
+  displayAllNotes:object;
   Node: boolean = false;
   createNoteForm: FormGroup;
   notesmode: Note = new Note();
-  color:string;
   isarchive=0;
-  image:string;
   constructor(
     private formBuilder: FormBuilder,
     private noteService:NoteService,  
@@ -23,6 +23,9 @@ export class CreatenoteComponent implements OnInit {
   noteopen(){
     this.Node=true;
   }
+  submit(){
+    this.Node = false;
+  }
   ngOnInit() {
     this.createNoteForm =this.formBuilder.group({
       title:[''],
@@ -30,14 +33,10 @@ export class CreatenoteComponent implements OnInit {
     })
   }
   addNote(title,description){
-    debugger;
     this.Node=false;
     if(title.value !="" || description.value !=""){
-      // this.notesmode.changeColor=null;
-      // this.notesmode.archive=this.isarchive;
-      // this.notesmode.remainder=null;
-      // this.notesmode.pin=0;
-      const form={
+    this.notesmode.archive=this.isarchive;
+    const form={
         title,
         description
       }
@@ -45,12 +44,16 @@ export class CreatenoteComponent implements OnInit {
       this.noteService.addNote(form).subscribe(Response=>
       {
         console.log(Response);
+        this.outputnote.emit({ name : 'getNote'});
         this.snackbar.open('Note Created Sucessfully','dismiss',{duration:3000});
+        this.submit();
       },
       (error) => {
         this.snackbar.open('Error in creating note', '', { duration: 2000 });
         console.log('error response', error);
       });
+    }else{
+      this.submit();
     }
   }
 }
