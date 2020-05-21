@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './Component/register/register.component';
 import { LoginComponent } from './Component/login/login.component';
 import { MatCardModule } from '@angular/material/card';
-import { CardComponent } from './Component/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -32,27 +31,26 @@ import { CreatenoteComponent } from './Component/createnote/createnote.component
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
-import { AddNoteComponent } from './Component/add-note/add-note.component';
 import { TestComponent } from './Component/test/test.component';
 import { DisplayNoteComponent } from './Component/display-note/display-note.component';
 import { IconsComponent } from './Component/icons/icons.component';
 import { NoteComponent } from './Component/note/note.component';
+import { AddnoteComponent } from './Component/addnote/addnote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    CardComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
     DashboardComponent,
     IconsComponent,
     CreatenoteComponent,
-    AddNoteComponent,
     TestComponent,
     DisplayNoteComponent,
     NoteComponent,
+    AddnoteComponent,
   ],
   imports: [
     FormsModule,
