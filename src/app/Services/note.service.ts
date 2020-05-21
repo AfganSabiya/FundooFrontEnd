@@ -15,7 +15,15 @@ export class NoteService
     {
       return this.http.post(environment.Url+'api/AddNotes',params,this.header);
     }
-    getnote(){
+    getNote(){
       return this.http.get(environment.Url+'api/GetAllNotes',this.header);
+    }
+    archive(arr){
+      debugger;
+      console.log(arr);
+      return this.http.post(environment.Url+'api/IsArchive?id='+arr,null,this.header);
+    }
+    unarchive(id){
+      return this.http.get(environment.Url+'api/unArchive?'+id,this.header);
     }
 }
