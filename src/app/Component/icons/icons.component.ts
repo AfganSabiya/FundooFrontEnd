@@ -13,9 +13,7 @@ export class IconsComponent implements OnInit {
   note:Note = new Note();
   @Input() param: any;
   @Output() output:EventEmitter<any> = new EventEmitter<any>();
-  
- // @Output() iconoutput:EventEmitter<any> = new EventEmitter<any>();
-  constructor(private noteService:NoteService,
+ constructor(private noteService:NoteService,
     private snackbar:MatSnackBar)
      { }
   ngOnInit()
@@ -26,25 +24,11 @@ export class IconsComponent implements OnInit {
   isArchive(){
     debugger;
     this.output.emit({ name: 'archive'})
-  // console.log(this.notes.id);
-  // this.noteService.archive(this.notes.id).subscribe((result) => {
-  // this.snackbar.open('Archive Sucessfully', 'Dismiss', { duration: 3000 });
-  // });
-
   }
   setColor(color)
   {
     debugger;
     this.output.emit({ name: 'color', value:color});
-    // this.noteService.setColor(this.notes.id,color).subscribe(Response=>
-    // {
-    //   console.log(Response);
-    //   this.snackbar.open('Colored Sucessfully','dismiss', { duration: 4000 });
-    // },
-    // (error)=>{
-    //   console.log('error :', error );
-    //     this.snackbar.open('colors Failed', '', { duration: 4000 });
-    // })
   }
   colors = [
     [
