@@ -1,22 +1,30 @@
 <div fxLayout="row">
     <div fxLayout="row" class="icons">
-        <button mat-icon-button matTooltip="Remind Me">
+        <button mat-icon-button matTooltip="Remind Me"  >
             <mat-icon class="icon">add_alert</mat-icon>
         </button>
         <button mat-icon-button matTooltip="collaborator">
             <mat-icon class="icon">person_add</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Add Color">
+        <button mat-icon-button matTooltip="Add Color" [matMenuTriggerFor]="colorlist">
             <mat-icon class="icon">palette </mat-icon>
         </button>
         <button mat-icon-button matTooltip="Add image">
             <mat-icon class="icon">image</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="UnArchive">
-            <mat-icon class="icon">unarchive</mat-icon>
-        </button>
-        <button mat-icon-button matTooltip="Archive" (click)="isArchive()">
+        <button mat-icon-button matTooltip="Archive"  (click)="isArchive()">
             <mat-icon class="icon">archive</mat-icon>
         </button>
     </div>
 </div>
+<mat-menu #colorlist="matMenu" [overlapTrigger]="false"> 
+    <div *ngFor="let color of colors">
+        <div class="row">
+            <div *ngFor="let colr of color">
+                <button [ngStyle]="{'background-color': colr.color}" (click)="setColor(colr.color)"
+                    matTooltip="{{ colr.name }}" mat-mini-fab>
+                </button>
+            </div>
+        </div>
+    </div>
+</mat-menu>
