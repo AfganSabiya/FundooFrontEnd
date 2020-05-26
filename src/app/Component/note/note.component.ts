@@ -29,4 +29,5 @@ export class NoteComponent implements OnInit {
       console.log(this.displayAllNotes);
     });
   }
+  
 }
