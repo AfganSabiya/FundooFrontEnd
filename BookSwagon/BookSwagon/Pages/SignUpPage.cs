@@ -1,4 +1,9 @@
-﻿
+﻿//---------------------------------------------------------------------------------------------------------------------------------------
+//<copyright file = "SignUpPage.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name=Afgan Sabiya"/>
+//---------------------------------------------------------------------------------------------------------------------------------------
 namespace BookSwagon.Pages
 {
     using System;
@@ -7,27 +12,47 @@ namespace BookSwagon.Pages
     using System.Threading;
     using OpenQA.Selenium;
     using SeleniumExtras.PageObjects;
-
+    /// <summary>
+    /// Class for SignUp Page
+    /// </summary>
     public class SignUpPage
     {
-        IWebDriver driver;
+        /// <summary>
+        /// Defines the interface through which the user controls the browser.
+        /// </summary>
+       private IWebDriver driver;
+
+        /// <summary>
+        /// Constructor for signup page use the driver on the test class.
+        /// PageFactory is used to find annotation to work.
+        /// </summary>
+        /// <param name="webDriver"></param>
         public SignUpPage(IWebDriver webDriver)
         {
             PageFactory.InitElements(webDriver, this);
             this.driver = webDriver;
         }
 
+        /// <summary>
+        /// Page Factory [FindsBy] annotation finds the web elementson the signuppage
+        /// </summary>
         [FindsBy(How = How.XPath, Using = "//input[@id='ctl00_phBody_SignUp_txtEmail']")]
-         IWebElement email;
+         private IWebElement email;
         [FindsBy(How = How.XPath, Using = "//input[@id='ctl00_phBody_SignUp_txtPassword']")]
-         IWebElement password;
+        private IWebElement password;
         [FindsBy(How = How.XPath, Using = "//input[@id='ctl00_phBody_SignUp_txtConfirmPwd']")]
-         IWebElement confirmpassword;
+        private IWebElement confirmpassword;
         [FindsBy(How = How.Id, Using = "ctl00_phBody_SignUp_chkNewsletter")]
-         IWebElement checkNewsletter;
+        private IWebElement checkNewsletter;
         [FindsBy(How = How.XPath, Using = "//input[@id='ctl00_phBody_SignUp_btnSubmit']")]
-          IWebElement signupbutton;
-      
+        private IWebElement signupbutton;
+
+        /// <summary>
+        ///  method for signup passing parameters
+        /// </summary>
+        /// <param name="Email">email .</param>
+        /// <param name="Password">password .</param>
+        /// <param name="ConfirmPassword">confirm password .</param>
         public void SignUp(string Email, string Password, string ConfirmPassword)
         {
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(30);
@@ -36,6 +61,10 @@ namespace BookSwagon.Pages
             confirmpassword.SendKeys(ConfirmPassword);
             checkNewsletter.Click();
         }
+
+        /// <summary>
+        /// Method for SignUpButton
+        /// </summary>
         public void SignUpButton()
         {
             signupbutton.Click();
