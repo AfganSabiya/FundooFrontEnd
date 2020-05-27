@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
-
+﻿
 namespace BookSwagon.Pages
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading;
+    using OpenQA.Selenium;
+    using SeleniumExtras.PageObjects;
+
     public class SignUpPage
     {
         IWebDriver driver;
