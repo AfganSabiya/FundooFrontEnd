@@ -1,6 +1,7 @@
 ﻿Feature: SignUpPage
 	
 	Verify the functionilities working in the application
+@SmokeTest
 @Browser:Chrome
 Scenario:Verify signup function of  the account(+ve cases)
 	Given I have navigate to signup page of the application
