@@ -1,10 +1,7 @@
-<div>
+<div class="align">
    <app-createnote (outputnote)="getAllNotes($event)"></app-createnote>
-   <!-- <app-createnote></app-createnote> -->
-    <div class="row">
-      <app-display-note class="col"  [inputdata]="displayAllNotes" > </app-display-note>
-   </div>
-</div> 
-<div >
-
+   <!-- <div *ngFor="let result of displayAllNotes">
+      <app-display-note [note]="result" *ngIf="result.trash==0" (notify)="getAllNotes($event)"></app-display-note>
+   </div> -->
+   <app-display-note [inputnote]="displayAllNotes" (notify)="getAllNotes($event)"></app-display-note>
 </div>
