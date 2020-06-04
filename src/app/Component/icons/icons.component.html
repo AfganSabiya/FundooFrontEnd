@@ -1,30 +1,55 @@
-<div fxLayout="row">
-    <div fxLayout="row" class="icons">
-        <button mat-icon-button matTooltip="Remind Me"  >
+    <div *ngIf="!trash" fxLayout="row" class="icons">
+
+        <button mat-icon-button matTooltip="Remind Me">
             <mat-icon class="icon">add_alert</mat-icon>
         </button>
+
         <button mat-icon-button matTooltip="collaborator">
             <mat-icon class="icon">person_add</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Add Color" [matMenuTriggerFor]="colorlist">
+
+        <button mat-icon-button matTooltip="Add Color" [matMenuTriggerFor]="colorlist" id="color">
             <mat-icon class="icon">palette </mat-icon>
         </button>
+
         <button mat-icon-button matTooltip="Add image">
             <mat-icon class="icon">image</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Archive"  (click)="isArchive()">
+        <button mat-icon-button matTooltip="Archive"  (click)="isArchive()" id="archive">
             <mat-icon class="icon">archive</mat-icon>
         </button>
-    </div>
-</div>
-<mat-menu #colorlist="matMenu" [overlapTrigger]="false"> 
-    <div *ngFor="let color of colors">
-        <div class="row">
-            <div *ngFor="let colr of color">
-                <button [ngStyle]="{'background-color': colr.color}" (click)="setColor(colr.color)"
-                    matTooltip="{{ colr.name }}" mat-mini-fab>
-                </button>
+
+        <button mat-icon-button matTooltip="More" [matMenuTriggerFor]="morevertmenulist">
+            <mat-icon class="icon">more_vert</mat-icon>
+        </button>
+
+        <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+            <div *ngFor="let color of colors">
+                <div class="row">
+                    <div *ngFor="let colr of color">
+                        <button [ngStyle]="{'background-color': colr.color}" (click)="setColor(colr.color)"
+                            matTooltip="{{ colr.name }}" mat-mini-fab>
+                        </button>
+                    </div>
+                </div>
             </div>
+        </mat-menu>
+        <mat-menu #morevertmenulist="matMenu">
+            <button mat-menu-item (click)="DeleteNotegotoTrash()">
+                <span>DeleteNote</span>
+            </button>
+            <button mat-menu-item>Add Label</button>
+        </mat-menu>
+    </div>
+
+    <div *ngIf="trash" fxLayout="row" class="delete">
+        <div>
+            <button mat-menu-item  class="aligntresh" (click)="deleteForever()" matTooltip="DeleteForever" id="delete">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+            <button  class="aligntresh" mat-menu-item (click)="restore()" matTooltip="Restore" id="restore">
+                <mat-icon class="mr">restore_from_trash</mat-icon>
+            </button>
         </div>
     </div>
-</mat-menu>
+
