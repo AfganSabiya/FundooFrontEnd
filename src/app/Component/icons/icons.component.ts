@@ -11,25 +11,32 @@ export class IconsComponent implements OnInit {
   [x: string]: any; 
   @Input() notes:any;
   note:Note = new Note();
-  @Input() param: any;
+  @Input() onDisplay:boolean = false;
+ @Input() onCreateNote:boolean = false;
   @Output() output:EventEmitter<any> = new EventEmitter<any>();
- constructor(private noteService:NoteService,
-    private snackbar:MatSnackBar)
+  @Input() trash:boolean=false;
+  
+ constructor()
      { }
   ngOnInit()
-   {
-    console.log(this.notes.id);
-   }
-  
+  { }
   isArchive(){
-    debugger;
-    this.output.emit({ name: 'archive'})
+    this.output.emit({ name: 'archive' });
   }
   setColor(color)
   {
-    debugger;
     this.output.emit({ name: 'color', value:color});
   }
+  DeleteNotegotoTrash(){
+    this.output.emit({ name: 'trash'});
+  }
+   restore() {
+    this.output.emit({ name: 'Restore'});
+   }
+   deleteForever() {
+    this.output.emit({ name: 'deleteforever'});
+   }
+
   colors = [
     [
       { color: "rgb(255,255,255)", name: "Default" },
