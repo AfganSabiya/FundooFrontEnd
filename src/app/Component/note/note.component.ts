@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { NoteService } from 'src/app/Services/note.service';
 import { Note } from 'src/app/model/notesmode.model';
 import { ActivatedRoute } from '@angular/router';
@@ -10,18 +10,24 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./note.component.scss']
 })
 export class NoteComponent implements OnInit {
-   noteModel: Note = new Note();
-   displayAllNotes: any;
+  
+   displayAllNotes: any=[];
+
+
+
+   @Output() outputnote: EventEmitter<any> = new EventEmitter();
   constructor
   (
     private noteservice: NoteService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private activatedRoute:ActivatedRoute
   ) { }
   ngOnInit()
   { 
     this.getAllNotes();
+    
   }
-  getAllNotes(event?) 
+  getAllNotes(e?) 
   {
     this.noteservice.getNote().subscribe(Response => 
     {
