@@ -1,16 +1,14 @@
-<div class="cardiv" *ngFor="let data of inputdata" >
-    <mat-card class="cardalign" [ngStyle]="{'background-color': data.changeColor}" >
-            <div class="aligntitle">
-                {{data.title}}
-            </div>
-            <div class="aligndescrip">
-                {{data.description}}
-            </div>
-            <!-- <div class="icons">
-                <app-icons [notes] ="data"></app-icons>
-            </div> -->
-            <div  class="icons">
-                <app-icons (output)="notify($event,data.id)"></app-icons>
-            </div>
+<div class="cardiv" *ngFor="let note of inputnote">
+    <mat-card class="cardalign" [ngStyle]="{'background-color': note.changeColor}">
+        <div class="aligntitle">
+            {{note.title}}
+        </div>
+        <div class="aligndescrip">
+            {{note.description}}
+        </div>
+        <div class="icons">
+            <app-icons [trash]="trash" [archive]="archiveinput"
+            (output)="iconEvent($event,note.id)" [notes]="note"  notify="getAllNote()"> </app-icons>
+        </div>
     </mat-card>
 </div>
