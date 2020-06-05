@@ -15,7 +15,8 @@
         <button mat-icon-button matTooltip="Add image">
             <mat-icon class="icon">image</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Archive"  (click)="isArchive()" id="archive">
+     
+        <button mat-icon-button matTooltip="Archive" (click)="isArchive()" id="archive">
             <mat-icon class="icon">archive</mat-icon>
         </button>
 
@@ -43,13 +44,11 @@
     </div>
 
     <div *ngIf="trash" fxLayout="row" class="delete">
-        <div>
-            <button mat-menu-item  class="aligntresh" (click)="deleteForever()" matTooltip="DeleteForever" id="delete">
-                <mat-icon>delete_forever</mat-icon>
-            </button>
-            <button  class="aligntresh" mat-menu-item (click)="restore()" matTooltip="Restore" id="restore">
-                <mat-icon class="mr">restore_from_trash</mat-icon>
-            </button>
-        </div>
+        <button mat-menu-item  class="aligntresh" (click)="deleteForever()" matTooltip="DeleteForever" id="delete">
+            <mat-icon>delete_forever</mat-icon>
+        </button>
+        <button  class="aligntresh" mat-menu-item (click)="restore()" matTooltip="Restore" id="restore">
+            <mat-icon class="mr">restore_from_trash</mat-icon>
+        </button>
     </div>
 
