@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material';
 export class DisplayNoteComponent implements OnInit {
   @Input() inputnote: any;
   @Input() trash:boolean=false;
+  @Input() archiveinput:boolean=false;
   @Input() notes: Note = new Note();
   @Output() notify: EventEmitter<any> = new EventEmitter<any>();
   
@@ -49,15 +50,14 @@ export class DisplayNoteComponent implements OnInit {
     }
   }
   private archive(id) {
-    //console.log(this.notes.id);
-    this.notify.emit({name:'getAllNotes'})
     this.noteservice.archive(id).subscribe((result) => {
+      this.notify.emit({name:'getAllNotes'})
       this.snackbar.open('Archive Sucessfully', 'Dismiss', { duration: 3000 });
     });
   }
   private unArchive(id: any){
-    console.log(this.notes.id);
     this.noteservice.unarchive(id).subscribe((result) => {
+      this.notify.emit({name:'getAllNotes'})
          this.snackbar.open('Unarchive Sucessfully','dismiss', { duration: 4000 });
      })
   }
