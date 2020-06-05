@@ -26,9 +26,8 @@ export class DashboardComponent implements OnInit {
   }
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
   note(){
-    debugger;
-  this.route.navigate(['/note']);
-  //  this.route.navigateByUrl("/note")
+  this.route.navigate(['dashboard/note']);
    }
+ 
 }
 
