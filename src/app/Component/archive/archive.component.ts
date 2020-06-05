@@ -6,17 +6,14 @@ import { NoteService } from 'src/app/Services/note.service';
   styleUrls: ['./archive.component.scss']
 })
 export class ArchiveComponent implements OnInit {
-  
-  allArchiveListNotes:any;
+  allArchiveListNotes: any=[];
   constructor(
     private noteservice: NoteService
   ) { }
-
   ngOnInit() {
-    console.log('----------------');
+    this.getAllArchiveList();
   }
 getAllArchiveList(){
-  debugger;
 this.noteservice.getArchiveList().subscribe(
   Response =>{
     this.allArchiveListNotes = Response;
