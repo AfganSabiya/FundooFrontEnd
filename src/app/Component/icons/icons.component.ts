@@ -15,6 +15,7 @@ export class IconsComponent implements OnInit {
  @Input() onCreateNote:boolean = false;
   @Output() output:EventEmitter<any> = new EventEmitter<any>();
   @Input() trash:boolean=false;
+  @Input() archive:boolean=false;
   
  constructor()
      { }
@@ -23,6 +24,7 @@ export class IconsComponent implements OnInit {
   isArchive(){
     this.output.emit({ name: 'archive' });
   }
+  
   setColor(color)
   {
     this.output.emit({ name: 'color', value:color});
