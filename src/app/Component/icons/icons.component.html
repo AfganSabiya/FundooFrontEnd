@@ -1,6 +1,6 @@
     <div *ngIf="!trash" fxLayout="row" class="icons">
 
-        <button mat-icon-button matTooltip="Remind Me">
+        <button mat-icon-button matTooltip="Remind Me" [matMenuTriggerFor]="remind"  (click)="$event.stopPropagation();">
             <mat-icon class="icon">add_alert</mat-icon>
         </button>
 
@@ -15,7 +15,7 @@
         <button mat-icon-button matTooltip="Add image">
             <mat-icon class="icon">image</mat-icon>
         </button>
-     
+       
         <button mat-icon-button matTooltip="Archive" (click)="isArchive()" id="archive">
             <mat-icon class="icon">archive</mat-icon>
         </button>
@@ -25,30 +25,55 @@
         </button>
 
         <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
-            <div *ngFor="let color of colors">
-                <div class="row">
-                    <div *ngFor="let colr of color">
-                        <button [ngStyle]="{'background-color': colr.color}" (click)="setColor(colr.color)"
-                            matTooltip="{{ colr.name }}" mat-mini-fab>
-                        </button>
-                    </div>
+            <div class="mat-menu-content">
+                <div class="color-row" *ngFor="let color of colors">
+                    <mat-card *ngFor="let colour of color;" 
+                        [ngStyle]="{'background-color': colour.color}"
+                        (click)="setColor(colour.color)"
+                         matTooltip="{{ colour.name }}"class="mat-color"> 
+                    </mat-card>
                 </div>
             </div>
         </mat-menu>
+
         <mat-menu #morevertmenulist="matMenu">
             <button mat-menu-item (click)="DeleteNotegotoTrash()">
                 <span>DeleteNote</span>
             </button>
             <button mat-menu-item>Add Label</button>
         </mat-menu>
+
     </div>
 
     <div *ngIf="trash" fxLayout="row" class="delete">
-        <button mat-menu-item  class="aligntresh" (click)="deleteForever()" matTooltip="DeleteForever" id="delete">
+        <button mat-menu-item  class="aligntresh" (click)="deleteForever()"
+         matTooltip="DeleteForever" id="delete">
             <mat-icon>delete_forever</mat-icon>
         </button>
         <button  class="aligntresh" mat-menu-item (click)="restore()" matTooltip="Restore" id="restore">
             <mat-icon class="mr">restore_from_trash</mat-icon>
         </button>
     </div>
-
+    <mat-menu #remind="matMenu"  (click)="$event.stopPropagation();">
+        <mat-card class="reminder-div-card">
+            <div>Pick date & time </div>
+            <mat-form-field (click)="$event.stopPropagation();">
+                <input id="date" matInput [matDatepicker]="date" value="matDatepicker" #picdate>
+                <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+                <mat-datepicker #date></mat-datepicker>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill" class="color" (click)="$event.stopPropagation();">
+                <mat-label>8:00 AM</mat-label>
+                <mat-select>
+                    <mat-option value="8:00 AM" (click)="setTime(a.value)" #a>Morning 8:00 AM</mat-option>
+                    <mat-option value="1:00 PM" (click)="setTime(b.value)" #b>Afternoon 1:00 PM</mat-option>
+                    <mat-option value="6:00 PM" (click)="setTime(c.value)" #c>Evening 6:00 PM</mat-option>
+                    <mat-option value="8:00 PM" (click)="setTime(d.value)" #d>Night 8:00 PM</mat-option>
+                    <mat-option value="10:00 AM" (click)="setTime(e.value)" #e>Custom</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button (click)="saveReminder(picdate.value)" id="save">Save</button>
+    </mat-card>
+</mat-menu> 
