@@ -1,14 +1,21 @@
-<div class="cardiv" *ngFor="let note of inputnote">
-    <mat-card class="cardalign" [ngStyle]="{'background-color': note.changeColor}">
-        <div class="aligntitle">
-            {{note.title}}
+<div>
+    <mat-card  class="cardalign" *ngFor="let note of inputnote" 
+    [ngStyle]="{'background-color': note.changeColor}" [style.width]="width" [style.margin]="margin">
+    <div (click)="OnClickEditDialogue(note)">
+        <div class=""> {{note.title}} </div>
+        <div class="aligndescrip"> {{note.description}} </div>
+    </div>
+        <div *ngIf="note.remainder!=null && note.remainder!=''" >
+            <mat-chip-list>
+                <mat-chip class="mar">{{note.remainder}}
+                    <button matTooltip="Delete Reminder" class="remind-div" 
+                    [ngStyle]="{'background-color': note.changeColor}"  style="border: none;outline: none;">
+                        <mat-icon (click)="deleteReminder(note.id)" class="Cbutton">close</mat-icon>
+                    </button>
+                </mat-chip>
+            </mat-chip-list>
         </div>
-        <div class="aligndescrip">
-            {{note.description}}
-        </div>
-        <div class="icons">
-            <app-icons [trash]="trash" [archive]="archiveinput"
-            (output)="iconEvent($event,note.id)" [notes]="note"  notify="getAllNote()"> </app-icons>
-        </div>
+            <app-icons [trash]="trash"  (output)="iconEvent($event,note.id)" [archive]="archiveinput"
+             [notes]="note"  notify="getAllNote()" > </app-icons>
     </mat-card>
 </div>
