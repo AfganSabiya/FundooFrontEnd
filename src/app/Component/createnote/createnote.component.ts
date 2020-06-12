@@ -1,5 +1,5 @@
 import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
-import { FormBuilder, FormGroup, SelectControlValueAccessor } from '@angular/forms';
+ import { FormBuilder, FormGroup} from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { NoteService } from 'src/app/Services/note.service';
 import { Note } from 'src/app/model/notesmode.model';
@@ -13,9 +13,9 @@ export class CreatenoteComponent implements OnInit {
   displayAllNotes:object;
   Node: boolean = false;
   createNoteForm: FormGroup;
-  notesmode: Note = new Note();
-  isarchive=0;
+  notemodel: Note = new Note();
   color:string;
+  reminder:string;
   constructor(
     private formBuilder: FormBuilder,
     private noteService:NoteService,  
@@ -29,37 +29,41 @@ export class CreatenoteComponent implements OnInit {
   }
   ngOnInit() {
     this.createNoteForm =this.formBuilder.group({
-      title:[''],
-      description:[''],
-    })
+    title:[''],
+    description:[''],
+    changeColor:["rgb(255,255,255)"],
+  });
   }
-  addNote(title,description){
-    this.Node=false;
-    if(title.value !="" || description.value !=""){
-      this.notesmode.archive=this.isarchive;
-      this.notesmode.changeColor= this.color;
-      const form={
-        title,
-        description
-      }
-      console.log(title, description);
-      this.noteService.addNote(form).subscribe(Response=>
-      {
-        console.log(Response);
-        this.outputnote.emit({ name : 'getNote'});
-        this.snackbar.open('Note Created Sucessfully','dismiss',{duration:3000});
-        this.submit();
-      },
-      (error) => {
-        this.snackbar.open('Error in creating note', '', { duration: 2000 });
-        console.log('error response', error);
-      });
-    }
-    else{
+
+  addNote()
+  {
+    if(this.createNoteForm.value.title != "" || this.createNoteForm.value.description !="" )
+    {
+      this.notemodel.title = this.createNoteForm.value.title;
+      this.notemodel.description = this.createNoteForm.value.description;
+      this.notemodel.changeColor = this.color;
+      this.noteService.addNote(this.notemodel).subscribe((Response)=>{
+      console.log(Response);
+      this.outputnote.emit({ name : 'getNote'});
+      this.snackbar.open('Note Created Sucessfully','dismiss',{duration:3000});
       this.submit();
+      },
+      (error) => {          
+      this.snackbar.open('Error in creating note', '', { duration: 2000 });
+      console.log('error response', error);
+      });
+    }else{
+    this.submit();
+    }
+  }    
+  addnoteIconEvent(event)
+  {
+    switch (event['name']){
+      case 'color' : this.notemodel.changeColor=event.value;
+      break;
+      case 'archive':this.notemodel.archive=true
+      break
+      case 'remainder':this.notemodel.remainder=event.value;
     }
   }
-  // setColor(colorName) {
-  //   this.color=colorName;
-  // }
 }
