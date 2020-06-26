@@ -1,9 +1,0 @@
-
- <app-search *ngIf = 'searchDisplayNote !=""; else elseBlock'></app-search>
-<ng-template #elseBlock> 
-   <app-createnote (outputnote)="getAllNotes($event)"></app-createnote>
-   <app-display-note  [labelsNote]="allLabelList"  [inputnote]="displayAllNotes" (notify)="getAllNotes($event)" 
-    [archive]="false" (labelnotify)="getAllLabelList($event)"  [trash]="false"
-    [collaboratorNote]="allCollaboratorList" (collabonotify)="getAllCollaboratorList($event)">
-    </app-display-note>
-</ng-template>
