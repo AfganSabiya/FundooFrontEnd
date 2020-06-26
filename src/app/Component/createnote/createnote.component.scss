@@ -1,32 +1,25 @@
 .openedmatcard{
-    width: 36em;
-    // margin:100px;
-     padding: 0px;
-     align-content: center;
-     left:30%;
-     width:42%;
-     top:20px;
-     cursor: text;
+  width:40%;
+  height:auto;
+  //left:25%;
+  display: flex;
+  cursor: text;
+  background-color:white;
+  align-items: center;
+  top:20px;
 }
-.addmatcard{
-    //margin-top: 110px;
-    width: 36em;
-    height:5px;
-    position:sticky;
-    left:25%;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    z-index:1000;
-    top: 20px;
+.input{
+  width:95%;
+  //height:20px;
+  height:auto;
+  border: none;
+  outline: none;
+  background-color:white;
+  margin-bottom: 15px;
+  position: relative;
 }
-
-.takeNote{
-    // font-weight: 500;
-    // padding: 15px;
-    // opacity: 50%;
-    background-color: white;
+.searchbar{
+  background-color: white;
     margin: 0 0;
     height: 25px;
     width: 100%;
@@ -37,41 +30,112 @@
     border:none;
     outline: none;
 }
-.notetext{
-    font-weight: 500;
-    font-size: initial;
-    border: none;
-    background: transparent;
-    width: 20em;
+.closedmatcard{
+  width:40%;
+  height: 10px;
+  position:sticky;
+  left: 28%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index:1000;
+  top: 20px;
+}
+.note
+  {
+    margin-bottom: 50px;
+    margin-top: 3px;
+    justify-content: center;
+  }
+  .d-flex
+  {
+      display: flex;
+  }
+.takeNote{
+    // font-weight: 500;
+    // padding: 15px;
+    opacity: 50%;
+    background-color: white;
+  
+   // height: 25px;
+    width: 100%;
+   // top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    border:none;
     outline: none;
-    height: 3em;
+}
+.space
+{
+    justify-content: space-between;
+}
+.notetext{
+    font-weight: 400;
+    font-size: 1rem;
+    border: none;
+    background: white;
+    width: 20em;
+    font-family: Roboto,Arial,sans-serif;
+    outline: none;
+    height: auto;
     margin-left: 15px;
 }
-.closeclass{
-    margin-top: 17px;
-    background-color:whitesmoke;
-    color: black;
-    font-weight: 500;
-    font-size: medium;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+
 .box{
 display: flex;
+margin-left: 0.5cm;
+}
+.note-div{
+  margin-left:25%;
 }
 .cancelclass{
-width:20%;
+width:15%;
 Text-align:center;
-float: right;;
+margin-left: 70%;
+position: sticky;
 }
 .bottomalign
 {
-width: 75%;
+width: 60%;
 Text-align:left;
 float:left;
 }
 .noteicon{
-    left:45%;
+    left:60%;
     background-color: white;
 }
+
+
+.mar:hover{
+    .remind-div{
+        visibility: visible;
+      }
+  }
+
+  .remind-div{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    visibility: hidden;
+  }
+  .lab-div{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    visibility: hidden;
+  }
+  .mars:hover{
+    .lab-div{
+      visibility: visible;
+    }
+  }
+  .labe{
+    flex-wrap: row-wrap;
+  }
+  .Cbutton
+  {
+      margin-top: 10px;
+      margin-left: 5px;
+      margin-right: -10px;
+  }
