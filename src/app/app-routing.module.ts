@@ -9,7 +9,15 @@ import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { TestComponent } from './Component/test/test.component';
 import { IconsComponent } from './Component/icons/icons.component';
 import { NoteComponent } from './Component/note/note.component';
-import { AddnoteComponent } from './Component/addnote/addnote.component';
+import { TrashComponent } from './Component/trash/trash.component';
+import { ArchiveComponent } from './Component/archive/archive.component';
+import { RemainderComponent } from './Component/remainder/remainder.component';
+import { CreatenoteComponent } from './Component/createnote/createnote.component';
+import { DisplayNoteComponent } from './Component/display-note/display-note.component';
+import { TestingComponent } from './Component/testing/testing.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ImageprofileComponent } from './Component/imageprofile/imageprofile.component';
+import { LabelComponent } from './Component/label/label.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -17,18 +25,21 @@ const routes: Routes = [
   { path: 'forgotpassword', component: ForgotpasswordComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'test',component:TestComponent},
+  {path: 'image',component:ImageprofileComponent},
   { path: 'icon',component:IconsComponent},
-  { path: 'addnote',component: AddnoteComponent},
+  { path: 'createnote',component:CreatenoteComponent},
+  {path: 'displaynote',component:DisplayNoteComponent},
+  {path: 'testing',component:TestingComponent},
+  {path: 'profile',component:ProfileComponent},
   { path: 'dashboard', component: DashboardComponent,
-
   children:[
-    {path:'note',component:NoteComponent,
-    }
+    {path:'note',component:NoteComponent},
+    {path:'trashList',component:TrashComponent},
+    {path:'archiveList',component:ArchiveComponent},
+    {path:'Reminders',component:RemainderComponent}
   ]
 },
 ];
-
-
 @NgModule({
   imports: [
     RouterModule,
