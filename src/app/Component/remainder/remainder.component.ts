@@ -14,7 +14,8 @@ allreminderList:any=[];
   ngOnInit() {
     this.getAllReminderList();
   }
-getAllReminderList(){
+getAllReminderList()
+{
   this.noteservice.getRemainderlist().subscribe(
     Response => {
       this.allreminderList=Response;
