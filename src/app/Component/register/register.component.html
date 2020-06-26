@@ -1,29 +1,29 @@
+<div class="ng-star-inserted">
 <mat-card class="card">
-    <div class="div">
+    <div class="align-div">
         <mat-card-header>
             <mat-card-title class="subtitle">
                 <mat-label class="fundoo">
-                    <h1>
+                    <div class="fundoo-div">
                         <span class="blue">F</span>
                         <span class="red">U</span>
                         <span class="yellow">N</span>
                         <span class="blue">D</span>
                         <span class="green">O</span>
                         <span class="darkred">O</span>
-                    </h1>
+                    </div>
                 </mat-label>
             </mat-card-title>
         </mat-card-header>
         <mat-card-header>
             <mat-card-title>
-                <h2>Create your Google Account</h2>
-                <h3>Continue to gmail</h3>
+                <div class="title-div">Create your Google Account</div>
             </mat-card-title>
         </mat-card-header>
     </div>
     <form class="Input-form-container">
         <mat-form-field class="registration" appearance="outline" class="smallname">
-            <mat-label class="labelColor">First Name</mat-label>
+                <mat-label class="labelColor">First Name</mat-label>
                 <input matInput [formControl]="firstName" placeholder="First Name" required>
                 <mat-error *ngIf="firstName.hasError('required')">Enter First Name</mat-error>
                 <mat-error *ngIf="firstName.hasError('minlength')">Minimum 4 Characters</mat-error>
@@ -41,7 +41,7 @@
         </mat-form-field>
         
         <mat-form-field class="registration" appearance="outline" class="line">
-             <mat-label class="labelColor">Email</mat-label>
+             <mat-label class="labelColor" aria-label="First name">Email</mat-label>
                 <input matInput [formControl]="email" placeholder="Ex. pat@example.com" required>
                 <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">Sorry,Invalid email
                 </mat-error>
@@ -65,10 +65,11 @@
        
         <div class="button">
             <button mat-raised-button class="registerbutton" type="button" color="primary" (click)="registrationForm()"
-                class="register_btn" id="register">Register</button>
+                class="register_btn">Register</button>
         </div> <br>
         <div class="link">
             <span>Already Have an account? <a href="login">Login</a></span>
         </div> <br>
     </form>
 </mat-card>
+</div>

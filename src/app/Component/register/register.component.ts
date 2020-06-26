@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/Services/account.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -31,7 +32,6 @@ export class RegisterComponent implements OnInit {
 
   registrationForm() 
   {
-    
     let firstName = new String(this.firstName.value);
     let lastName = new String(this.lastName.value);
     let userPassword = new String(this.password.value);
