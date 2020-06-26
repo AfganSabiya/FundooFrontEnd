@@ -1,5 +1,6 @@
 import { Component, OnInit,Output,EventEmitter, Input } from '@angular/core';
-
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
@@ -9,25 +10,26 @@ export class IconsComponent implements OnInit {
   [x: string]: any; 
   @Input() notes:any;
   @Input() onDisplay:boolean = false;
+  @Input() collaboricon:any;
   @Output() output:EventEmitter<any> = new EventEmitter<any>();
   @Input() trash:boolean=false;
   @Input() archive:boolean=false;
   todayString : string = new Date().toDateString();
  constructor(
+  public dialog: MatDialog
   ) { }
   ngOnInit(){ }
 
   isArchive(){
     this.output.emit({ name: 'archive',value:""});
   }
-    setColor(color)
-  {
+    setColor(color){
     this.output.emit({ name: 'color', value:color});
   }
   DeleteNotegotoTrash(){
     this.output.emit({ name: 'trash',value:""});
   }
-   restore() {
+   restore(){
     this.output.emit({ name: 'Restore'});
    }
    deleteForever() {
@@ -35,6 +37,14 @@ export class IconsComponent implements OnInit {
    }
    saveReminder(date) {
     this.output.emit({ name:"remainder" ,value:date});
+  }
+  collaborator(){
+    debugger;
+    this.output.emit({name:'collaborator', value:""});
+  }
+  addnewLabel(labelname){
+    debugger;
+    this.output.emit({ name :'label',value:labelname});
   }
    colors =[
     [
