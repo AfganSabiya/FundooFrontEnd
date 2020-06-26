@@ -64,6 +64,7 @@ export class CreatenoteComponent implements OnInit {
       case 'archive':this.notemodel.archive=true
       break
       case 'remainder':this.notemodel.remainder=event.value;
+      break;
     }
   }
 }
