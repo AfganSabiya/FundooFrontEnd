@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Note } from 'src/app/model/notesmode.model';
 @Component({
@@ -19,7 +19,7 @@ export class UpdateNoteComponent implements OnInit {
     this.passData.id = id;
     this.passData.description = description;
     this.passData.title = title;
-    this.passData.changeColor =ChangeColor;
+    this.passData.changeColor = ChangeColor;
     this.dialogRef.close({ update: this.passData });
   }
   outputFunction(value) {
