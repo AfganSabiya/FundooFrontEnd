@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class DataService {
-  private messageSource = new BehaviorSubject<any>('20%');
+  private messageSource = new BehaviorSubject<any>('22%');
   currentMessage = this.messageSource.asObservable();
   private margin = new BehaviorSubject('2%');
   shareMargin = this.margin.asObservable();
@@ -21,9 +21,8 @@ export class DataService {
   updateMargin(value) {
     this.margin.next(value);
   }
-  
   searchnotemessage(note){
-this.search.next(note);
+  this.search.next(note);
   }
 
   UpdateSearchMessage(textmessage){
