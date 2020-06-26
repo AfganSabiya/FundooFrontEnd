@@ -23,6 +23,7 @@ export class ResetpasswordComponent implements OnInit {
   ngOnInit() {
   }
   resetForm(){
+    debugger
     let newPassword= new String(this.password.value)
     if(this.confirmpassword.value!='' && this.password.value!='' && this.confirmpassword.value===this.password.value){
       const data = {
