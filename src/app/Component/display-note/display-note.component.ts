@@ -5,6 +5,10 @@ import { MatSnackBar } from '@angular/material';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
 import { DataService } from 'src/app/Services/data.service';
+import { Label } from 'src/app/model/labelmode.model';
+import { Collaborator } from 'src/app/model/collaboratormode.model';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
+import { CollaboratorService } from 'src/app/Services/collaborator.service';
 
 @Component({
   selector: 'app-display-note',   
@@ -12,21 +16,30 @@ import { DataService } from 'src/app/Services/data.service';
   styleUrls: ['./display-note.component.scss']
 })
 export class DisplayNoteComponent implements OnInit {
-  @Input() inputnote: any;
+  @Input() inputnote:any;
   @Input() trash:boolean=false;
   @Input() archiveinput:boolean=false;
   @Input() notes: Note = new Note();
   @Input() isDisplay:boolean = false ;
+  @Input() labelsNote:any;
+  @Input() collaboratorNote:any;
+  Collaborators:any
   @Output() notify: EventEmitter<any> = new EventEmitter<any>();
-  time = "8:00 AM";
-  repeat = "daily";
-  day = "Today";
+  @Output() labelnotify: EventEmitter<any> = new EventEmitter<any>();
+  @Output() collabonotify: EventEmitter<any> = new EventEmitter<any>();
   todayString : string = new Date().toDateString();
+  collaboratormode : Collaborator = new Collaborator();
   notesmode: Note = new Note();
+  labelmode: Label = new Label();
   backgroundColor: string;
   width: any;
   margin: any;
+  id:any;
+  time = "8:00 AM";
+  repeat = "daily";
+  day = "Today";
   constructor(
+    private collaboratorservice:CollaboratorService,
     private dataService:DataService,
     private noteservice: NoteService,
     private snackbar: MatSnackBar,
@@ -49,16 +62,21 @@ export class DisplayNoteComponent implements OnInit {
          this.DeleteNotegotoTrash(id);
         console.log("goingtrash");
         break;
-      case 'deleteforever':
-        this.deleteForever(id);
+      case 'deleteforever': this.deleteForever(id);
         console.log("deleting forever");
         break;
       case 'Restore':
-        this.restore(id);
+         this.restore(id);
         console.log("restoring");
         break;
-        case 'remainder':this.reminder(event.value,id);
+      case 'remainder':
+        this.reminder(event.value,id);
         break;
+      case 'label': 
+      this.addnewLabel(event.value,id);
+        break;
+      case 'collaborator':
+        this.collaborator(event.value,id);
       default:
         this.notify.emit({ id: id, name: event.name });
         break;
@@ -169,4 +187,81 @@ export class DisplayNoteComponent implements OnInit {
       console.log('error',error);
     });
   }
+
+  
+  addnewLabel(labelname,id) {
+   //  if (labelname != null && labelname != '') 
+   // this.label.LabelName= event.value.id;
+   this.labelmode.labelName = labelname;
+    this.labelmode.noteId = id;
+    this.labelmode.email=localStorage.getItem('Email');
+    this.noteservice.AddingLabel(this.labelmode).subscribe(Response => {
+      console.log(Response);
+      this.labelsNote=Response;
+      this.labelnotify.emit({name:'getAllLabelList'})
+    });
+  }
+  deleteLabel(id)
+  {
+   
+    console.log(id);
+    this.noteservice.DeleteLabel(id).subscribe(Response =>{
+      this.labelnotify.emit({name:'getAllLabelList'})
+      console.log(Response);
+      this.snackbar.open('Delete label sucess','',{duration:4000});
+      
+  },
+    (error)=>{
+      console.log('error',error);
+    });
+  }
+
+  collaborator(event:any,id)
+  {
+    this.collaboratormode.noteId= id;
+    debugger;
+    const dialogRef = this.dialog.open(CollaboratorComponent,
+      {
+        // width: '40%',
+        // height: 'auto',
+       // data: { collab:id,collaboraters:this.collaboratorNote},
+        data: { collab:this.collaboratormode.noteId,collaboraters:this.collaboratorNote},
+        
+        panelClass: 'custom-dialog-container',
+      });
+
+      
+      dialogRef.afterClosed().subscribe(result=>
+      {
+        console.log(result.collabData);
+          if(result.collabData)
+          {
+            debugger;
+            this.collaboratorservice.AddCollaborators(result.collabData).subscribe(Response =>
+            {
+              console.log(Response);
+              this.collabonotify.emit({name:'getAllCollaboratorList'})
+           });
+          }
+          else if(result.deleteCol){
+            this.collaboratorservice.deleteCollaborator(result.deleteCol).subscribe(Response => {
+              console.log(Response);
+              this.collabonotify.emit({name:'getAllCollaboratorList'})
+            })
+          }
+          else{
+            if(result.collabData == undefined){
+              console.log("No collabator aded");
+              
+            }
+          }
+      })
+  }
+// collaborator(col:any){
+//   this.collaboratorservice.AddCollaborators(col).subscribe( res=> {
+//     console.log(sucess);
+//   })
+// }
+  
 }
+
