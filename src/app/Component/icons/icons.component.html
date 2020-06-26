@@ -4,7 +4,7 @@
             <mat-icon class="icon">add_alert</mat-icon>
         </button>
 
-        <button mat-icon-button matTooltip="collaborator">
+        <button mat-icon-button matTooltip="collaborator" (click)="collaborator()">
             <mat-icon class="icon">person_add</mat-icon>
         </button>
 
@@ -24,6 +24,27 @@
             <mat-icon class="icon">more_vert</mat-icon>
         </button>
 
+        <mat-menu #morevertmenulist="matMenu">
+            <button mat-menu-item (click)="DeleteNotegotoTrash()">
+                <span>DeleteNote</span>
+            </button>
+            <button mat-menu-item  [matMenuTriggerFor]="addLabel">Add Label</button>
+            <button mat-menu-item>Add Drawing</button>
+        </mat-menu>
+<div>
+        <mat-menu #addLabel="matMenu" (click)="$event.stopPropagation();">
+            <mat-card (click)="$event.stopPropagation();">
+                Label Note
+                <input id="label_text" matInput placeholder="Enter label name" value="" #label><br>
+              
+               <div *ngFor="let label of labels;">
+                    <mat-checkbox (change)="addnewLabel(label.labelName)"></mat-checkbox>{{label.labelName}} 
+               </div>
+                 <button mat-button  *ngIf="label.value !=''" (click)="addnewLabel(label.value)" id="create">+ Create
+                "{{label.value}}"</button>
+            </mat-card>
+        </mat-menu>
+</div>
         <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
             <div class="mat-menu-content">
                 <div class="color-row" *ngFor="let color of colors">
@@ -35,14 +56,6 @@
                 </div>
             </div>
         </mat-menu>
-
-        <mat-menu #morevertmenulist="matMenu">
-            <button mat-menu-item (click)="DeleteNotegotoTrash()">
-                <span>DeleteNote</span>
-            </button>
-            <button mat-menu-item>Add Label</button>
-        </mat-menu>
-
     </div>
 
     <div *ngIf="trash" fxLayout="row" class="delete">
@@ -75,5 +88,5 @@
             </mat-form-field>
             <br>
             <button mat-raised-button (click)="saveReminder(picdate.value)" id="save">Save</button>
-    </mat-card>
-</mat-menu> 
+         </mat-card>
+    </mat-menu> 
