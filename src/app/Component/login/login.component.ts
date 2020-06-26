@@ -12,6 +12,7 @@ import { Token } from '@angular/compiler';
 })
 export class LoginComponent implements OnInit {
   debugger;
+  userEmail=[];
   email = new FormControl('', [
     Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'),
   ]);
@@ -24,9 +25,16 @@ export class LoginComponent implements OnInit {
     private snackBar: MatSnackBar) 
     { }
   ngOnInit() {
+    
   }
+  // getUserEmail(){
+  //   if(localStorage.getItem('email') === null){
+  //     this.userEmail = [];
+  //   }else{
+  //     this.userEmail = JSON.parse(localStorage.getItem('email'));
+  //   }
+  // }
   loginForm(){
-    debugger;
     let userPassword = new String(this.password.value);
     if (this.email.value != null && userPassword.length >= 8) {
       const credentials= {
@@ -36,9 +44,10 @@ export class LoginComponent implements OnInit {
       this.service.loginForm(credentials).subscribe((response) => 
       {
         console.log(response);
+        localStorage.setItem('Email',credentials.userEmail);
         localStorage.setItem('token',response['token']);
         this.snackBar.open('Login Successfully', 'Dismiss', { duration: 3000 });
-        this.route.navigate['dashboard/display'];
+        this.route.navigate(['/dashboard']);
       },(error) => {
         console.log('error :', error );
         this.snackBar.open('Login Failed. Check Your Credentials', '', { duration: 4000 });

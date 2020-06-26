@@ -1,11 +1,9 @@
 
 .card{
     background-color: whitesmoke;
-    height: 120%;
     width: 35%;
     visibility: visible;
-    margin:auto;
-    margin-top: 10px;
+    margin: auto;
 }
 .subtitle{
     color: darkslategray;
@@ -13,11 +11,21 @@
     align-content: center;
     align-self: center;
 }
-h1{
-    text-align: center;
+.input-div{
+    justify-content: center;
 }
-h2{
-    text-align: center;
+app-login.ng-star-inserted {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.ng-star-inserted {
+   // display: flex;
+   margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+   // height: 100%;
 }
 .darkred{
     color:red;
@@ -38,8 +46,8 @@ h2{
 .registration{
     width: 95%;
     margin: 0 10px;
-    box-shadow: beige;
-    border: black;
+    // box-shadow: beige;
+    // border: black;
 }
 .fundoo
 {
@@ -48,13 +56,7 @@ h2{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: auto;
 }
-.Input-form-container
-{
-    align-items: center;
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-}
+
 .login_btn{
     margin: 0 10px;
     color:black;
@@ -62,10 +64,26 @@ h2{
     align-self: center;
 }
 .linewidth{
-    align-items: center;
-    width:80%;
+   // align-items: center;
+    width:89%;
     margin: 0 10px;
 }
 .link {
     text-align: center;
+}
+.div-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Input-form-container {
+    align-items: center;
+    // min-width: 150px;
+    // max-width: 500px;
+    // width: 100%;
+    display: flex;
+    justify-content: center;
+    //align-items: center;
+    flex-direction: column;
 }
