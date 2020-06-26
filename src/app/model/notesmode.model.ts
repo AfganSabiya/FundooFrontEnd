@@ -5,11 +5,12 @@ export class Note
     changeColor: String;
     pin: number;
     trash: number;
-    archive: number;
+    archive: boolean;
     remainder: string;
-    search: number;
+    search: string;
     addImage: string;
     id: number;
     email: string;
+    ProfilePic: string;
 }
 
