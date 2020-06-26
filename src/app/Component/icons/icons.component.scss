@@ -2,12 +2,80 @@
     font-size: 20px;
 }
 .icons{
-   justify-content: space-around;
-   opacity: 0.9;
+    justify-content: space-around;
+    opacity: 0.9;
 }
 .button{
     background: transparent;
     border: none;
     outline: none;
     margin:1px;
+}
+.delete
+{
+    //margin-left: 18px;
+    justify-content: start;
+    background: transparent;
+}
+.mat-menu-item .mat-icon {
+    margin-right: 0px;
+    vertical-align: middle;
+}
+.mat-color {
+    margin: 2%;
+    padding: 9%;
+    border-radius: 50%;
+    min-width: 2px;
+}
+.mat-menu-content:not(:empty) {
+    // padding-top: 8px;
+    // padding-bottom: 8px;
+    padding: 5px 7px 3px;
+}
+.color-row {
+    display: flex;
+    flex-flow: row;
+    overflow: hidden;
+}
+.reminder-div-card{
+    justify-content: center;
+}
+.mr
+{
+    padding-bottom: 2px;
+}
+.aligntresh{
+    opacity: 1.61;
+    border: none;
+    background-color: transparent;
+    border-radius: 50%;
+}
+.size {
+    height: 8cm;
+    width: 7cm;
+}
+.picdate
+{
+     margin-left: 5px;
+    margin-top: -3px;;
+}
+.VsHK1d-V68bde{
+    background-color: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    opacity: 0;
+    padding: 5px 7px 3px;
+    position: absolute;
+    transition: visibility 0s ease .218s ,opacity .218s linear;
+    visibility: hidden;
+    width: 136px;
+    z-index: 4011;
+}
+.colorPalette {
+    padding: 2px;
+}
+.VsHK1d-V68bde.ti6hGc{
+    opacity: 1;
+    transition: visibility 0s ease 0ms,opacity .218s linear;
+    visibility: visible;
 }
