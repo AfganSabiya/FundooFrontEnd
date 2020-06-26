@@ -20,4 +20,19 @@
             (click)="updateNote( data.note.id,title.value, description.value,data.note.changeColor)">Close</button>
         </div>
     </div>
+
+<div class="labe-row">
+    <div *ngFor="let labe of labelsNote" >
+        <div *ngIf="labe.noteId == note.id" >
+            <mat-chip-list>
+               <mat-chip class="mars">{{labe.labelName}}
+                    <button matTooltip="Delete Label" class="lab-div"  [ngStyle]="{'background-color' : note.changeColor}"
+                        style="border: none;outline: none;">
+                    <mat-icon (click)="deleteLabel(labe.labelId)" class="Cbutton">close</mat-icon> 
+                    </button>
+                </mat-chip> 
+            </mat-chip-list>
+        </div> 
+    </div>  
+</div>
 </mat-card>
