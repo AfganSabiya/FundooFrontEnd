@@ -1,7 +1,9 @@
-<div class="align">
+
+ <app-search *ngIf = 'searchDisplayNote !=""; else elseBlock'></app-search>
+<ng-template #elseBlock> 
    <app-createnote (outputnote)="getAllNotes($event)"></app-createnote>
-   <!-- <div *ngFor="let result of displayAllNotes">
-      <app-display-note [note]="result" *ngIf="result.trash==0" (notify)="getAllNotes($event)"></app-display-note>
-   </div> -->
-   <app-display-note [inputnote]="displayAllNotes" (notify)="getAllNotes($event)"></app-display-note>
-</div>
+   <app-display-note  [labelsNote]="allLabelList"  [inputnote]="displayAllNotes" (notify)="getAllNotes($event)" 
+    [archive]="false" (labelnotify)="getAllLabelList($event)"  [trash]="false"
+    [collaboratorNote]="allCollaboratorList" (collabonotify)="getAllCollaboratorList($event)">
+    </app-display-note>
+</ng-template>
