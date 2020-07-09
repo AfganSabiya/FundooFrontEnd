@@ -11,11 +11,10 @@ export class AccountService {
   ) { }
 
   registrationForm(values){
-    console.log(values);
-    return this.http.post(environment.Url+'api/Register',values);
+    return this.http.post(environment.Url+'api/BookAccount/Register',values);
   }
-  loginForm(data)
-  {
-    return this.http.post(environment.Url+'api/AdminLogin',data);
+  loginForm(data){
+    return this.http.post(environment.Url+'api/BookAccount',data);
   }
+  
 }
