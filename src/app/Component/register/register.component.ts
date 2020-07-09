@@ -15,13 +15,12 @@ export class RegisterComponent implements OnInit {
     private route: Router,
     private snackbar: MatSnackBar
   ) { }
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
+  
     firstName = new FormControl('', [
-    Validators.required, Validators.minLength(4), Validators.pattern('^[a-zA-Z]*'),]);
+    Validators.required, Validators.minLength(4), Validators.pattern('^[a-zA-Z]'),]);
     lastName = new FormControl('', [
-    Validators.required, Validators.minLength(4), Validators.pattern('^[a-zA-Z]*'),]);
+    Validators.required, Validators.minLength(4), Validators.pattern('^[a-zA-Z]'),]);
     email = new FormControl('', [
     Validators.required, Validators.email,]);
     password = new FormControl('', [
@@ -31,28 +30,32 @@ export class RegisterComponent implements OnInit {
    
   registrationForm() 
   {
-    let firstName = new String(this.firstName.value);
-    let lastName = new String(this.lastName.value);
+    let FirstName = new String(this.firstName.value);
+    let LastName = new String(this.lastName.value);
     let UserPassword = new String(this.password.value);
     try{
-    if (firstName.length >= 4 && lastName.length >= 4 && UserPassword.length >= 8) 
-    {
+     if (FirstName.length >= 4 && LastName.length >= 4 && UserPassword.length >= 8) 
+     {
+      
       const form = {
-        firstName: this.firstName.value,
-        lastName: this.lastName.value,
+        FirstName: this.firstName.value,
+        LastName: this.lastName.value,
         UserEmail: this.email.value,
         UserPassword: this.password.value
       };
-      this.service.registrationForm(form).subscribe(result => {
+      this.service.registrationForm(form).subscribe(result => 
+      {
         this.snackbar.open('Registered Sucessfully', 'Dismiss', { duration: 3000 });
-        this.route.navigate(['/login']);
+        this.route.navigate(['/login'] );
       },
-        (error) => {
+        (error) =>
+        {
           console.log(error);
           this.snackbar.open('Registration Failed.Check Your Credentails', '', { duration: 4000 });
         });
       }
-    }catch(arr){
+    }
+    catch(arr){
       this.snackbar.open('arr','',{duration:4000});
     }
   }
