@@ -3,6 +3,7 @@ import { CartService } from 'src/app/Service/cart.service';
 import { DatasharingService } from 'src/app/Service/datasharing.service';
 import { CartModel } from 'src/app/Model/cartmodel';
 import { BookService } from 'src/app/Service/book.service';
+import { CustomerService } from 'src/app/Service/customer.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -20,7 +21,8 @@ export class CartComponent implements OnInit {
   constructor(
     private cartservice : CartService,
     private datasharing : DatasharingService,
-    private bookservice : BookService
+    private bookservice : BookService,
+    private customerservice : CustomerService
    ) {}
 
   ngOnInit(): void {
@@ -46,10 +48,10 @@ getcartBookEmail()
     })
 }
 
-deleteFromCart(bookID){
+deleteFromCart(cartID){
 debugger;
-this.cartmodel.cartID = bookID;
-this.cartservice.deleteFromCart(bookID).subscribe(
+this.cartmodel.bookID = cartID;
+this.cartservice.deleteFromCart(cartID).subscribe(
  Response =>{
   this.getcartBookEmail();
   })
@@ -58,22 +60,33 @@ this.cartservice.deleteFromCart(bookID).subscribe(
 placeOrder(){
   debugger;
   this.showCustomerDetails=true;
-  for (let i = 0; i < this.allcartbooks['length']; i++) {
+  for (let i = 0; i < this.allcartbooks['a']; i++) {
   const data={
     email: localStorage.getItem('Email'),
     cartID: this.allcartbooks[i].cartID,
     bookID: this.allcartbooks[i].bookID,
-    selectBookCount: this.allcartbooks[i].selectBookCount
+    selectBookCount: this.allcartbooks[i].bookCount
   }
+  debugger;
+  console.log(data);
+  debugger
   this.cartservice.updateCartBook(data).subscribe(Response => {
+    debugger;
     console.log(Response);
-    this.allcartbooks=Response['result'];
-   //  this.getCustomers();
-   }, error => {
-   // this.getCustomers();
-   })
+   // this.allcartbooks=Response['result'];
+     this.getCustomer();
+   });
 }
 }
+
+getCustomer(){
+  debugger
+  this.customerservice.getcustomerdetails().subscribe(Response=>{
+    console.log(Response);
+    
+  })
+}
+
 DecrementFromCart(bookID,bookCount,authorName,price,bookImage,bookTitle){
   debugger;
   if(bookCount != 0 ){

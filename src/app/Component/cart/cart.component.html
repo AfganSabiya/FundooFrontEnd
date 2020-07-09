@@ -23,7 +23,7 @@
                                 (click)="IncrementFromCart(displaycart.bookID,displaycart.bookCount,displaycart.authorName,displaycart.price,displaycart.bookImage,displaycart.bookTitle)"> + </span>
                             </div>
                             <br><br><br>
-                            <span class="remove" (click)="deleteFromCart(displaycart.bookID)">Remove</span>
+                            <span class="remove" (click)="deleteFromCart(displaycart.cartID)">Remove</span>
                         </div>
                     </div>
                 </div>
@@ -32,16 +32,13 @@
     </mat-card>
     <div class="place-order-btn-div" fxLayout="row wrap" fxLayoutGap="10px">
         <button mat-button class="place-order-div"
-       color="primary"*ngIf="count!=0 && !showCustomerDetails;"
+       color="primary" *ngIf="!showCustomerDetails;"
        (click)="placeOrder()"> PLACE ORDER </button>
     </div>
     </div>
 </mat-card>
 
-<app-customer *ngIf="count!=0;" [showCustomerDetails]="showCustomerDetails" ></app-customer> 
-
-<!-- <mat-card class="cust-card-div">
-</mat-card> -->
+<app-customer  [showCustomerDetails]="showCustomerDetails" ></app-customer> 
 <mat-card class="cust-card-div">
     Order Summary
 </mat-card>
