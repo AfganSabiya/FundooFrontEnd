@@ -1,0 +1,53 @@
+    <div >
+      <div class="bookItems" fxLayout="row">Books<span class="items">({{totalbooks}} Items)
+          <div>
+            <select class="select" fxLayout="row" Sort by relevance>
+              <option>Sort by relevance</option>
+              <option> Price:Low to High</option>
+              <option>Price:High to Low</option>
+              <option>Newest Arrivals</option>
+            </select>
+          </div>
+        </span>
+      </div>
+    </div>
+  <div class="row" fxLayout.xs="column">
+    <mat-card class="main-div column" *ngFor="let book of allBooks 
+    | paginate: { itemsPerPage: 8, currentPage: p }">
+      <div>
+        <div class="desc">
+          <div>
+            <mat-card class="card-div">
+                <img class="img_size" [src]="book.bookImage" (mouseover)="change(book)"
+                (mouseout)="hiddenText(book)">
+            </mat-card>
+          </div>
+        </div>
+        <h6 class="title">{{book.bookTitle}}</h6>
+        <p>by&nbsp;{{book.authorName}}</p>
+        <h6>Rs.&nbsp;{{book.price}}</h6>
+
+        <div class="labe-row" >
+
+            <button mat-button class="add-btn-div" (click)=addBag(book.bookID)>ADD TO BAG</button>
+
+            <button class="wish-button1-div" mat-button>WISHLIST</button>
+
+        </div>
+       
+
+      </div>
+
+    </mat-card>
+  </div>
+ <mat-card *ngIf="book.description!=''" class="mat-div">
+    <h6  class="bookdetail-div">Book Detail</h6>
+    <div class="descrip-div">{{book.description}}
+    </div>
+</mat-card>   
+  <div class="page">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+
+
+          
