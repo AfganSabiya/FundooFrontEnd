@@ -1,4 +1,3 @@
-<!-- <img src="assets\Background\stoneimage.png" class="image"> -->
 <div class="ng-star-inserted">
     <mat-card class="card">
         <div class="div-main">
@@ -31,21 +30,22 @@
         
             <mat-form-field class="registration" appearance="outline" class="linewidth">
                     <mat-label class="labelColor">Email</mat-label>
-                        <input matInput [formControl]="email" placeholder="Email-Id" required>
-                        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">Sorry,Invalid email
+                        <input matInput [formControl]="email" placeholder="Email-Id" >
+                        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">Please enter a valid email address
                         </mat-error>
                         <mat-error *ngIf="email.hasError('required')">Email is Required</mat-error>
             </mat-form-field>
-            <mat-form-field class="registration" appearance="outline" class="linewidth">
+            <mat-form-field class="registration"  appearance="outline" class="linewidth">
                 <mat-label class="labelColor">Password</mat-label>
-                    <input matInput [formControl]="password" placeholder="password" type="password" required >
+                    <input matInput [formControl]="password" placeholder="password" type="password"  >
                     <mat-error *ngIf="password.hasError('required')">Password is Required</mat-error>
-                    <mat-error *ngIf="password.hasError('minlength')">Use 8 or More Characters with a mix of letters,numbers & symbols</mat-error>
+                    <mat-error *ngIf="password.hasError('minlength')">Use 8 or More Characters 
+                        with a mix of letters,numbers & symbols</mat-error>
             </mat-form-field>
-       
         <br>
             <div class="button">
-                <button mat-raised-button class="loginbutton" type="button" color="primary" (click)="loginForm()"
+                <button mat-raised-button class="loginbutton" type="button" color="primary" 
+               [disabled]="!email.valid || !password.valid" (click)="loginForm()"
                     class="login_btn">Sign in</button>
             </div> <br>
             <div class="link">
