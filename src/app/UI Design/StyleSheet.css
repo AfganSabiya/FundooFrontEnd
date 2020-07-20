@@ -1,0 +1,246 @@
+.box {
+    border-style: solid;
+    border-width: 0.5px;
+	border-color:grey;
+  }
+.headerbox1{
+  background-color: pink;
+    padding: 20px;
+    margin-top: -151px;
+    margin-left: -142px;
+    width: 100px;
+  }
+  .headerbox2{
+    background-color: pink;
+    padding: 20px;
+    margin-top: -41px;
+    margin-left: 100%;
+    width: 100px;
+  }
+  .headerbox3{
+    background-color: pink;
+    padding: 50px;
+    margin-top: -10px;
+    margin-left: 26%;
+    width: 65px;
+  }
+  .headerbox4{
+    background-color: pink;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 40%;
+    width: 30px;
+  }
+  
+  .box-1 {
+  margin-right: 25%;
+  margin-left: 25%;
+  padding: 150px;
+  height:200px;
+  }
+  .mainbox{
+    height:140px;
+    background-color: pink;
+    margin-top: 10px;
+    margin-left:-35%;
+    width: 130%;
+    padding: 70px;
+  }
+  .mainboxb1{
+   background-color: grey;
+   padding:10px;
+   margin-top: -10%;
+    margin-left:-10%;
+	width:100px;
+  }
+  .mainboxb2{
+  width:150px;
+   background-color: grey;
+   padding:20px;
+   margin-top: -6%;
+    margin-left:20%;
+  }
+  .mainboxb3{
+  width:180px;
+   background-color: grey;
+   padding:10px;
+   margin-top: -40px;
+    margin-left:65%;
+  }
+  .mainboxb4{
+  width:100px;
+   background-color: grey;
+   padding:10px;
+   margin-top: 35px;
+    margin-left:-10%;
+  }
+  .mainboxb5{
+  width:300px;
+   background-color: grey;
+   padding:50px;
+   margin-top: -20px;
+    margin-left:20%;
+  }
+  .mainboxb6{
+  width:150px;
+   background-color: grey;
+   padding:10px;
+   margin-top: 7px;
+    margin-left:20%;
+  }
+  .mainboxb7{
+  width:150px;
+   background-color: grey;
+   padding:20px;
+   margin-top: 10px;
+    margin-left:20%;
+  }
+  .mainboxb8{
+  width:150px;
+   background-color: grey;
+   padding:10px;
+   margin-top: -30px;
+    margin-left:65%;
+  }
+  
+  .footerbox1{
+  background-color: pink;
+    margin-top: 25px;
+    margin-left:-35%;
+    width: 20%;
+    padding: 10px;
+  }
+  .footerbox2{
+  background-color: pink;
+    margin-top: -20px;
+    margin-left:5%;
+    width: 20%;
+    padding: 10px;
+  }
+  .footerbox3{
+  background-color: pink;
+    margin-top: -22px;
+    margin-left:50%;
+    width: 20%;
+    padding: 10px;
+  }
+  .footerbox4{
+  background-color: grey;
+    margin-top: -15px;
+    margin-left:100%;
+    width: 30%;
+    padding: 5px;
+  }
+ .box-2 {
+  background-color: pink;
+    padding: 150px;
+  margin-right: 25%;
+  margin-left: 25%;
+   height:170px;
+  }
+  .b1{
+   margin-top: -130px;
+    margin-left:-34%;
+  padding: 15px;
+  background-color:grey;
+  width:40%;
+  }
+  .b2{
+   margin-top: -26px;
+    margin-left:85%;
+  padding: 20px;
+  background-color:grey;
+  width:40%;
+  }
+  .b3{
+   margin-top: 1px;
+    margin-left:-34%;
+  width:15%;
+  padding: 10px;
+  background-color:grey;
+  }
+  .b4{
+   margin-top: 10px;
+    margin-left:-34%;
+  width:120%;
+  padding: 20px;
+  background-color:grey;
+  }
+  .b5{
+   margin-top: -41px;
+    margin-left:104%;
+  width:20%;
+  padding: 20px;
+  background-color:grey;
+  }
+  .b6{
+   margin-top: 18px;
+    margin-left:-34%;
+  width:50%;
+  padding: 8px;
+  background-color:grey;
+  }
+  .b7{
+   margin-top: 30px;
+    margin-left:-34%;
+  width:158%;
+  padding: 20px;
+  background-color:grey;
+  }
+  .b8{
+   margin-top: 16px;
+    margin-left: -34%;
+    width: 19%;
+    padding: 13px;
+    background-color: grey;
+  }
+  .b9{
+   margin-top: 6px;
+    margin-left:-34%;
+  width:125%;
+  padding: 17px;
+  background-color:grey;
+  }
+  .b10{
+   margin-top: 6px;
+    margin-left: 107%;
+    width: 29%;
+    padding: 6px;
+    background-color: grey;
+  }
+  .b11{
+   margin-top: 6px;
+    margin-left:4%;
+  width:120%;
+  padding: 17px;
+  background-color:grey;
+  }
+  .b12{
+   margin-top: 6px;
+    margin-left: -34%;
+    width: 20%;
+    padding: 6px;
+    background-color: grey;
+  }
+  .b13{
+   margin-top: 6px;
+    margin-left:-34%;
+  width:122%;
+  padding: 20px;
+  background-color:grey;
+  }
+  .box-3{
+  padding:2px;
+   margin-top:10px;
+  margin-right: 60%;
+  margin-left: 25%;
+  background-color:grey;
+  }
+  .box-4{
+  padding: 2px;
+  margin-top:-5px;
+  margin-right: 25%;
+  margin-left: 50%;
+  background-color:grey;
+  }
+  
