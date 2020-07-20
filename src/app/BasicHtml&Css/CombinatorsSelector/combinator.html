@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+<title>Combinator Selector</title>
+<style>
+
+    h1,h2,h3,h4,h5{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    div~p{
+        color:paleturquoise; 
+        font-size:20px; 
+        font-weight:bold; 
+        margin:0px; 
+        text-align:center; 
+    }
+    div + p{ 
+        color: #009900; 
+        font-size:20px; 
+        font-weight:bold; 
+        margin:0px; 
+        text-align:center; 
+    } 
+    div > p{ 
+        color: #009900; 
+        font-size:20px; 
+        font-weight:bold; 
+        margin:0px; 
+        text-align:center; 
+    } 
+    div p{ 
+        color: #009900; 
+        font-size:20px; 
+        font-weight:bold; 
+        margin:0px; 
+        text-align:center; 
+    } 
+</style>
+</head>
+<body>
+    <h5>Types of Combinators</h5>
+    <h1>1.General Slibling Selector</h1>
+    <div>
+        Def:The general sibling selector selects all elements that are siblings of a specified element.
+    </div>
+     <p>The general sibling selector is used to select the element that follows the first selector element
+    <br> and also share the same parent as the first selector element.<br>
+    This can be used to select a group of elements that share the same parent element.
+    </p>
+    <h2>2.Adjacent Slibling Selector</h2>
+    <div>
+        <p>Def:selects all (p) elements that are placed immediately after (div) elements:</p>
+    </div>
+    <p>
+        The Adjacent sibling selector is used to select the element that is adjacent or
+        <br> the element that is the next to the specified selector tag.<br>
+        This combinator selects only one tag that is just next to the specified tag.
+    </p>
+    <h3>3.Child Selector</h3>
+    <div>
+        <p>
+            This selector is used to select the element that is the immediate child of the specified tag.<br>
+            This combinator is stricter than the descendant selector because it selects only the second selector<br>
+            if it has the first selector element as its parent.
+        </p>
+    </div>
+    <p>Selects all elements where the parent is a element.</p>
+    <h4>4.Descendant Selector(space)</h4>
+<div>
+    <p>
+        This selector is used to select all the child elements of the specified tag.<br>
+        The tags can be the direct child of the specified tag or can be very deep in the specified tag.<br>
+        This combinator combines the two selectors such that selected elements have an ancestor same <br>
+        as the first selector element.
+    </p>
+</div>
+
+</body>
+</html>
