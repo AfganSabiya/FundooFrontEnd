@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* unvisited link */
+a:link {
+  color: red;
+}
+/* visited link */
+a:visited {
+  color: green;
+}
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+/* selected link */
+a:active {
+  color: blue;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size: 20px;
+    text-align: center;
+}
+p{
+    font-size: 20px;
+    text-align: center;
+}
+.hover-box-div{ 
+        background-color: yellow; 
+        width: 1200px; 
+        height: 50px; 
+        margin: auto; 
+        font-size: 20px; 
+        text-align: center; 
+}
+.hover-box-div:hover{ 
+        background-color:blue; 
+    } 
+    .active-box-div{
+        background-color:pink; 
+        width: 1200px; 
+        height: 70px; 
+        margin: auto; 
+        font-size: 20px; 
+        text-align: center; 
+    }
+    .active-box-div:active{
+        background-color:crimson;
+    }
+    .focus-box-div{
+        background-color:rgb(56, 165, 42); 
+        width: 1200px; 
+        height: 70px; 
+        margin: auto; 
+        font-size: 20px; 
+        text-align: center; 
+    }
+    .focus:focus-box-div{
+        background-color: grey; 
+    }
+    label{
+        width:50%;
+    }
+    input:focus{ 
+        background-color:olive; 
+    } 
+    .visit-box-div{
+        background-color:rgb(42, 116, 165); 
+        width: 1200px; 
+        height: 70px; 
+        margin: auto; 
+        font-size: 20px; 
+        text-align: center; 
+    }
+  
+</style>
+</head>
+<body>
+<div>
+    <h1>Pseudo Class</h1>
+    <p>Defination: A pseudo-class is used to define a special state of an element.<br>
+        For Example, changing the style of an element when the user hovers over it,<br>
+     or when a link is visited.All of these can be done using Pseudo Classes in CSS.
+    </p>
+</div>
+
+    <h2>Uses of pseudo classes</h2>
+<div>
+    <h3>1):hover Pseudo-class</h3>
+    <div class="hover-box-div">
+        This pseudo-class is used to add special effect to an element when our mouse pointer is over it.<br>
+        The below example demonstrates that when your mouse enters the box area, 
+        its background color changes from yellow to orange.
+    </div>
+</div>
+<div>
+    <h4>2):active Pseudo-class</h4>
+    <div class="active-box-div"> 
+        This pseudo-class is used to select an element which is activated when the user clicks on it.<br>
+        The following example demonstrates that when you click on the box, <br>
+        its background color changes for a moment.
+    </div>
+</div>
+<div>
+    <h5>3):focus Pseudo-class</h5>
+    <div class="focus-box-div">
+    This pseudo-class is used to select an element which is currently focussed by the user.<br>
+    It works on user input elements used in forms and is triggered as soon as the user clicks on it.<br>
+     In the following example, the background color of the input field which is currently focussed changes.
+    <br>
+    <label for="username">Username:</label> 
+    <input type="text" name="username" 
+            placeholder="Enter your username" /> 
+    </div>
+</div>
+<div>
+<h6>4):visted Pseudo-class</h6>
+<div class="visit-box-div">
+    :visited Pseudo-class: This pseudo-class is used to select the links which have been already <br>
+    visited by the user. In the following example, the color of the link changes once it is visited.
+</div>
+<p><b><a href="default.asp" target="_blank">This is a link</a></b></p>
+</div>
+</body>
+</html>
