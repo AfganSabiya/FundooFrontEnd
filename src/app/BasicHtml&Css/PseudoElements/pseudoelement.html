@@ -1,0 +1,58 @@
+
+<!Doctype html> 
+    <head> 
+        <title>before</title> 
+        <style> 
+        p::before { 
+            content: "Before element - "; 
+            font-size: 20px;
+            color: rgb(35, 0, 130);
+        } 
+        h5::after { 
+            content: "After element - "; 
+            font-size: 20px;
+            color: green;
+        } 
+        h2::first-letter{
+            color: blue; 
+            text-align:center;
+        }
+
+        h3,h4::first-line{
+            color: red;
+        }
+        div{
+            font-size: 20px;
+        }
+        p{
+            font-size: 20px;
+        }
+        </style> 
+    </head> 
+    <body> 
+        <h1>Pseudo Elements</h1> 
+        <p> Defination:Pseudo-element in CSS is used to add style in specified parts of an element.<br>
+            Example: Using style before or after an element..</p> 
+        <p>This is another paragraph.</p> 
+        <div>
+            <h2>Use of Pseudo-Element</h2>
+            <h3>1.Before</h3>
+            <p>
+                Defination:
+                ::before Pseudo-element: It is used to add some CSS property before an element<br>
+                 when that element is called. 
+            </p>
+        </div>
+        <div>
+            <h4>2.After</h4>
+            <h5>
+                <div>
+                Defination:
+                    ::after Pseudo-element: It is used to add some CSS property after an element<br>
+                     when that element is called.
+                 </div>
+            </h5>
+        </div>
+        
+    </body> 
+    </html> 
